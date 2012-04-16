@@ -1,0 +1,5 @@
+<% if remotipart_submitted? %>  
+  $("#uploaded_cause_pic").attr("src", "<%= @photo.cover_image.thumb('200x200#').url %>")
+<% else %>  
+  $("#uploaded_cause_pic").attr("src", "<%= @photo.cover_image.thumb('200x200#').url %>")
+<% end %>

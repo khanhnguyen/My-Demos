@@ -1,0 +1,109 @@
+*{margin:0; padding:0;}
+img, fieldset{border:none;}
+.curv{float:left; width:100%;}
+.curv img{float:left;}
+*:focus{outline:none;}
+body{font:normal 12px/17px Arial, Helvetica, sans-serif;}
+.clear{clear:both;}
+
+
+
+#main_container{float:left; width:100%;}
+.wrapper{margin:0 auto; width:970px;}
+#outer_header{ float:left; width:100%; background:url(../images/header_bg.jpg) repeat-x 0 0}
+/*--header--*/
+#header{float: left; width:100%;}
+#header .top_header_banner{ float:left; width:971px; padding:20px 0}
+#header .top_header_banner .left_banner{ float:left; width:729px}
+#header .top_header_banner .left_banner img{ float:left}
+#header .top_header_banner .right_banner{ float:right; width:214px}
+#header .logo_section{ float:left; width:100%}
+#header .logo_section .logo{ float:left; margin-top:4px}
+#header .logo_section .login{ float:right; width:231px}
+#header .logo_section .login p{ float:right; width:auto; font-size:12px; color:#667daf; line-height:17px; padding-top:5px}
+#header .logo_section .login p strong{ font-weight:bold; color:#2f4c9c}
+#header .logo_section .login p strong a{color:#2f4c9c; text-decoration:none}
+#header .logo_section .login p strong a:hover{ text-decoration:underline}
+#header .logo_section .login .face_book{ float:right}
+#header .logo_section .login .face_book img{ float:right}
+/*--menu--*/
+#menu{ float:left; width:100%; background:#2f4c9c; margin-top:10px; position:relative; z-index:9999;}
+#menu ul{ float:left; width:100%; list-style:none; padding:10px 0 0}
+#menu ul li{ float:left; font-size:14px; color:#ffbb16; line-height:17px; font-weight:bold; padding:0 20px; position:relative;}
+#menu ul li a{ float:left;color:#ffbb16; text-decoration:none; padding-bottom:10px; display:block}
+#menu ul li a:hover{ color:#fff}
+
+
+
+#menu ul.sub-menu {list-style:none; position:absolute;top:27px;left:0px;display:block; width:115px; margin:0; padding:0;border: solid 1px #f1b739}
+#menu ul.sub-menu li{float:left; margin:0; width:115px!important;background:url(../images/drop_down_repeat.png) repeat;text-transform:none; padding:0; border-bottom:1px solid #f1b739; height:auto!important; font:bold 11px/14px Arial, Helvetica, sans-serif;text-align:center}
+#menu ul.sub-menu li a{color:#fff; width:115px;text-decoration:none; padding:4px 0;color:#2b4a9a!important;float:left; height:auto!important;}
+#menu ul.sub-menu li a:hover{color:#fff!important;}
+#menu ul.sub-menu li.last{ border-bottom:none}
+#menu li:hover ul, #menu li.over ul{display:block;}
+#menu ul li.large_item1 ul.sub-menu {list-style:none; position:absolute;top:27px;left:15px;display:block; width:115px; margin:0; padding:0;border: solid 1px #f1b739}
+#menu ul li.large_item2 ul.sub-menu {list-style:none; position:absolute;top:27px;left:10px;display:block; width:115px; margin:0; padding:0;border: solid 1px #f1b739}
+#menu ul li.large_item3 ul.sub-menu {list-style:none; position:absolute;top:27px;left:10px;display:block; width:115px; margin:0; padding:0;border: solid 1px #f1b739}
+/*--body container--*/
+#body_container{ float:left; width:920px; padding: 15px 25px 15px 25px; background:#c1c1c3; position:relative}
+.top_body_section{ float:left; width:920px}
+.banner_container{ float:left; width:587px; background:#FFF; padding:10px 10px}
+.banner_container .tab_section{ float:left; width:122px}
+.banner_container .tab_section ul{ float:left; width:122px; list-style:none}
+.banner_container .tab_section ul li{ float:left; width:122px; margin-bottom:9px}
+.banner_container .tab_section ul li.active{ position:relative}
+.banner_container .tab_section ul li.active  span{ position:absolute; background:url(../images/small_thumb0.png) no-repeat 0 0; width:122px; height:76px; left:0px; top:0px}
+.banner_container .tab_section ul li img{ float:left}
+.banner_container .tab_section ul li.last{ margin-bottom:0px}
+.banner_container .banner_section{float:right; width:452px; position:relative}
+.banner_container .banner_section .banner{ float:right; width:452px; z-index:0!important}
+.banner_container .banner_section .banner img{ float:left}
+.banner_container .banner_section .banner_details{ float:left; width:437px; position:absolute; left:0px; top:332px; background:url(../images/banner_details_bg.png) repeat-x 0 0; padding:5px 5px 24px 10px}
+.banner_container .banner_section .banner_details h3{ float:left; width:100%; font-size:20px; color:#FFF; line-height:23px; text-transform:uppercase; font-weight:normal}
+.banner_container .banner_section .banner_details p{ float:left; width:100%; font-size:13px; color:#fff; line-height:16px}
+.banner_container .banner_section .banner_details p a{color:#fff; text-decoration:none}
+.banner_container .banner_section .banner_details p a:hover{ text-decoration:underline}
+.banner_container .banner_section .pagging{ float:right; width:auto; position:absolute; right:10px; top:397px}
+.banner_container .banner_section .pagging ul{ float:left; width:auto; list-style:none}
+.banner_container .banner_section .pagging ul li{ float:left; width:auto; padding-right:3px}
+.banner_container .banner_section .pagging ul li a{ float:left; width:9px; height:9px;background:url(../images/slide_btn1.gif) no-repeat 0 0}
+.banner_container .banner_section .pagging ul li a:hover{background:url(../images/slide_btn_over1.gif) no-repeat 0 0}
+.banner_container .banner_section .pagging ul li.active a{background:url(../images/slide_btn_over1.gif) no-repeat 0 0}
+
+.top_body_section .right_banner_section{ float:right; width:300px}
+.top_body_section .right_banner_section .right_top_section{ float:left; width:300px}
+.top_body_section .right_banner_section .right_top_section img{ float:left}
+.top_body_section .right_banner_section .succes_story_box{ float:right; width:280px; background:url(../images/right_banner_bg.jpg) no-repeat 0 0; margin-top:8px; padding:10px 10px; height:158px}
+
+.right_banner_section .succes_story_box .left_succes_box{ float:left; width:170px}
+.right_banner_section .succes_story_box .left_succes_box .img_box{float:left; width:170px}
+.right_banner_section .succes_story_box .left_succes_box .img_box img{ float:left; border: solid 7px #f3b31d}
+.right_banner_section .succes_story_box .left_succes_box p{ float:left; width:100%; font-size:11px; color:#FFFFFF; line-height:14px; padding-top:3px}
+.right_banner_section .succes_story_box .right_succes_box{ float:right; width:98px}
+.right_banner_section .succes_story_box .right_succes_box p{float:left; width:100%; font-size:11px; color:#FFFFFF; line-height:14px; padding-top:3px; text-align:center}
+.right_banner_section .succes_story_box .right_succes_box p strong{ font-size:20px; display:block; padding-bottom:3px}
+.right_banner_section .succes_story_box .right_succes_box img{ float:left; margin-top:15px}
+
+#bottom_body_section{ float:left; width:840px; background:#f6c658 url(../images/body_bottom_bg.jpg) repeat-x 0 0; margin-top:10px; padding: 5px 40px 0 40px}
+#bottom_body_section .haading{ float:left; width:100%; text-align:center}
+#bottom_body_section .haading img{ float:none; display:inline}
+#bottom_body_section .bottom_body_details{ float:left; width:100%}
+#bottom_body_section .bottom_body_details ul{ float:left; width:100%; list-style:none}
+#bottom_body_section .bottom_body_details ul li{ float:left; width:273px; padding-top:12px; margin-right:10px; display:inline; padding-bottom:10px}
+#bottom_body_section .bottom_body_details ul li.last{ margin-right:0px}
+#bottom_body_section .bottom_body_details ul li.first{ margin: 0 40px 0 125px; display:inline}
+#bottom_body_section .bottom_body_details ul li .details{ float:left; width:273px}
+#bottom_body_section .bottom_body_details ul li .details .img_box{ float:left; width:78px}
+#bottom_body_section .bottom_body_details ul li .details .img_box img{ float:left}
+#bottom_body_section .bottom_body_details ul li .details .img_details{ float:left; width:190px; padding-left:5px}
+#bottom_body_section .bottom_body_details ul li .details .img_details h3{ float:left; width:100%; font-size:18px; color:#2245a3; line-height:20px; font-weight:bold}
+#bottom_body_section .bottom_body_details ul li .details .img_details p{ float:left; width:100%; font-size:12px; color:#fff; line-height:17px}
+#bottom_body_section .bottom_body_details .sign_up{ float:left; width:100%; text-align:center; padding-bottom:5px}
+#bottom_body_section .bottom_body_details .sign_up img{ float:none; display:inline}
+/*--footer--*/
+#footer{ float:left; width:100%; padding-top:119px}
+#footer ul{ float:left; width:100%; text-align:center; list-style:none; padding-bottom:10px }
+#footer ul li{ float:none; width:auto; display:inline; font-size:12px; color:#3460ab; padding:0 15px;}
+#footer ul li a{color:#3460ab; text-decoration:none}
+#footer ul li a:hover{ text-decoration:underline}
+

@@ -1,0 +1,96 @@
+<div class="subheader">
+  <div class="inner_width clearfix">
+    <div class="left">
+      <h2>Create a Campaign</h2>
+      <h3>Launch your campaign in minutes</h3>
+    </div>
+    <div style="width: 70px; display: none;" class="right clearfix"></div>
+  </div>
+</div>
+<div class="page">
+  <div class="inner_width">
+    <div style="height: 60px"></div>
+    <div id="non_fb_container" class="non_fb_container">
+      <div style="background-color: white;" id="non_fb_signup_optimizely" class="non_fb_signup_optimizely">
+        <!-- some stuff goes here for A/B testing -->
+        <div style="padding: 10px;">
+          <p style="height: 10px;"></p>
+          <p style="font-family: 'lucida grande',Tahoma,Verdana,Arial,sans-serif; font-size: 18px; color: rgb(128, 128, 128);">
+            <span style="font-size: x-large;">Did you know?
+              <br/>
+            </span>
+          </p>
+          <p style="height: 20px;"></p>
+          <p style="font-family: 'lucida grande',Tahoma,Verdana,Arial,sans-serif; font-size: 20px;">
+            <span style="font-size: x-large; color: rgb(51, 102, 255);">By turning donors into fundraisers, Fundly's <span style="font-weight: bold;">Social Multiplier</span><span style="font-size: large;">&trade;</span> can <em>increase donations</em> by up to <strong>52%</strong>?</span>
+          </p>
+          <p style="font-family: 'lucida grande',Tahoma,Verdana,Arial,sans-serif; font-size: 20px; position: relative; left: 0px; top: 34px;">
+            <span style="font-size: x-large;">&nbsp;</span>
+          </p>
+          <p style="font-family: 'lucida grande',Tahoma,Verdana,Arial,sans-serif; font-size: 20px;">
+            <span style="font-size: x-large;"><span style="font-size: large; color: rgb(128, 128, 128); position: relative; left: 6px; top: 41px;">Sign up now and learn more inside...</span>
+              <br/>
+            </span>
+          </p>
+        </div>
+      </div>
+      <div id="non_fb_signup" class="non_fb_signup">
+        <%= form_for @user, :url => "/create_campaign", :html => {:id => "non_fb_signup_form", :name => "fb_signup_form"} do |f| %>
+          <%= f.text_field :name,  :class => "inputtext watermark #{"sw_error" if @user.errors.full_messages.to_s.include? 'name' }", :id => "non_fb_first_name", :placeholder => "Name" %>
+          <%= f.text_field :email,  :class => "inputtext watermark #{ "sw_error" if @user.errors.full_messages.to_s.include? 'Email' }", :id => "non_fb_email", :placeholder => "Email" %>
+          <%= f.password_field :password,  :class => "inputtext watermark #{ "sw_error" if @user.errors.full_messages.to_s.include? 'Password' }", :id => "non_fb_password", :placeholder => "Password" %>
+          <%= f.password_field :password_confirmation,  :class => "inputtext watermark #{ 'sw_error' if @user.errors.full_messages.to_s.include? 'Password' }", :id => "non_fb_password_confirm", :placeholder => "Re-enter password" %>
+          <br/>
+          <br/>
+          <% if @user.errors.messages.to_s.include? "emailhas already been taken" %>
+            <div class="error_box" style="display: block;">
+              <p>
+                Email has already been taken
+              </p>
+            </div>
+          <% elsif @user.errors.count > 0 %>
+            <div class="error_box" style="display: block;">
+              <p>
+                Marked fields are mandatory
+              </p>
+            </div>
+          <% end %>
+          <br/>
+          <a class="seo_signup_btn" regotype="cause" id="non_fb_register"> <span>Create your Campaign!</span> </a>
+          <br/>
+          <fieldset align="center">
+            <legend>
+              OR
+            </legend>
+          </fieldset>
+          <br/>
+          <p id="register_with_fb">
+            <a href="/account/create/campaign?facebook=true"> <%= image_tag "fb-connect-large.png" %>
+          </p>
+          <br/>
+          <p class="signup_tos_1">
+            By clicking above, you agree to our
+          </p>
+          <a href="/terms-and-conditions" class="signup_tos_2">Terms of Service</a>
+        <% end %>
+        <br/>
+        <br/>
+      </div>
+    </div>
+    <div style="display: none;" id="fb_signup" class="fb_vanilla_signup">
+      <div id="fb_signup_optimizely" class="fb_signup_optimizely">
+        <!-- some stuff goes here for A/B testing -->
+        <p style="padding: 60px 20px 20px 20px; font-size: 14px; color: #263b71;">
+					Did You Know that Fundly can increase donations up to 52% with our Social Multiplier&trade;?
+        </p>
+        <img src="/static/images/fundly_advantage/conversions.png?v=dc023" style="max-width: 200px; margin: 25px;">
+      </div>
+      <div id="fb_signup_register" class="fb_signup_register">
+        <iframe width="550" scrolling="auto" height="340" frameborder="no" allowtransparency="true" style="border:none;overflow:hidden;width:550px" src="http://www.facebook.com/plugins/registration.php?client_id=148669528535835&amp;redirect_uri=http%3A%2F%2Ffundly.com%2Faccount%2Fregister%3Fregotype%3Dcause%26amp%3Binvite%3D%26amp%3Bnext%3D&amp;fb_only=false&amp;fields=[{'name':'name','view':'prefilled'},{'name':'first_name','view':'not_prefilled'},{'name':'last_name','view':'not_prefilled'},{'name':'email'},{'name':'password'}]"></iframe>
+        <p style="text-align:center">
+					By clicking <strong>Register</strong>, you agree to the <a href="/terms-and-conditions">Terms of Service</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

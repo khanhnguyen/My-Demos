@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html class="body-home body-home_index not-mobile">
+	<head>
+		<script type="text/javascript">
+			(function(H) {
+				H.className = H.className.replace(/\bno-js\b/, 'js')
+			})(document.documentElement)
+		</script>
+		<script type="text/javascript">var _sf_startpt = (new Date()).getTime()</script>
+		<script src="/path/countdown_v1.1/countdown.js"></script>
+		<title>Path</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="shortcut icon" href="https://path.com/static/favicon.ico">
+		<link rel="stylesheet" media="all" href="path/all.css?1323737042">
+	</head>
+	<body onload="window.top.scrollTo(0,1);" data-current-user="null" data-is-mobile="false" data-is-ios="false" data-referrer="null" data-referrer-id="null">
+		<div class="countdown">
+			<script>
+				// deadline(date, width, height, style, background, number color, small text color);
+				deadline("2012-4-1-0-0-0", "265", "45", "digital", "#000000", "#99FF33", "#FFFF33");
+
+			</script>
+		</div>
+		<div class="video-background">
+			<div class="media-container">
+				<img src="path/video-start.jpg" class="media positioner" height="1080" width="1980">
+				<img src="path/video-background-overlay.png" class="media overlay" height="1080" width="1980">
+			</div>
+		</div>
+		<a href="https://path.com/about" class="learn-more">Learn More<b></b></a>
+		<div class="video-modal">
+			<div class="video-dimmer"></div>
+			<div class="video-container">
+				<iframe width="640" height="360" frameborder="0" class="video-demo" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" src="https://player.vimeo.com/video/32856179?color=d6161e"></iframe>
+				<iframe width="640" height="360" frameborder="0" class="video-share-life" allowfullscreen="" mozallowfullscreen="" webkitallowfullscreen="" src="https://player.vimeo.com/video/32885259?color=d6161e"></iframe>
+			</div>
+		</div>
+		<script src="path/all.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			Ply.ui.register('shared', {
+				view : document.body
+			});
+
+			Ply.ui.register('home_index', {
+				view : document.body
+			});
+
+		</script>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-9066780-2']);
+			_gaq.push(['_trackPageview']);
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+
+		</script>
+		<script type="text/javascript">
+			var _sf_async_config = {
+				uid : 28481,
+				domain : "path.com"
+			};
+			(function() {
+				function loadChartbeat() {
+					window._sf_endpt = (new Date()).getTime();
+					var e = document.createElement('script');
+					e.setAttribute('language', 'javascript');
+					e.setAttribute('type', 'text/javascript');
+					e.setAttribute('src', (("https:" == document.location.protocol) ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" : "http://static.chartbeat.com/") + "js/chartbeat.js");
+					document.body.appendChild(e);
+				}
+
+				var oldonload = window.onload;
+				window.onload = ( typeof window.onload != 'function') ? loadChartbeat : function() { oldonload();
+					loadChartbeat();
+				};
+			})();
+
+		</script>
+		<script type="text/javascript">
+			var mpq = [];
+			mpq.push(["init", "8317b3b4f5a2a5fdba3c5a4782c7289f"]); (function() {
+				var b, a, e, d, c;
+				b = document.createElement("script");
+				b.type = "text/javascript";
+				b.async = true;
+				b.src = (document.location.protocol === "https:" ? "https:" : "http:") + "//api.mixpanel.com/site_media/js/api/mixpanel.js";
+				a = document.getElementsByTagName("script")[0];
+				a.parentNode.insertBefore(b, a);
+				e = function(f) {
+					return function() {
+						mpq.push([f].concat(Array.prototype.slice.call(arguments, 0)))
+					}
+				};
+				d = ["init", "track", "track_links", "track_forms", "register", "register_once", "identify", "name_tag", "set_config"];
+				for( c = 0; c < d.length; c++) {
+					mpq[d[c]] = e(d[c])
+				}
+			})();
+
+			mpq.identify("2dee0b30-2523-11e1-961a-123140ff0955");
+
+		</script>
+		<script src="path/6548263.js"></script>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<% content_for :javascripts do %>
+  <%= javascript_include_tag "jquery.remotipart" %>
+<% end %>
+<div class="page">
+  <div class="inner_width">
+    <div class="steps">
+      <ul class="steps_header clearfix tabs2">
+        <li class="steps_header1">
+          <a id="campaign_info" href="#">1. Fundraising Page Info</a>
+        </li>
+        <li class="steps_header2">
+          <a id="campaign_rewards" href="#" class="" href="#">2. Giving Levels</a>
+        </li>
+        <li class="steps_header3">
+          <a href="#" class="selected">3. Upload Media</a>
+        </li>
+      </ul>
+      <div class="tabs_body">        
+        <div class="step selected">
+          <div class="step_cnt">
+            <div class="step_header">
+              <b>Set your Logo</b>
+            </div>
+            <div class="set_logo clearfix">
+              <%= render 'form' %>
+            </div>
+          </div>
+          <div class="step_submit clearfix complete_signup">
+            <a class="btn dblue_btn" href="/edit/<%= @campaign.url %>" id="photo_continue"><span>Save &amp; Continue</span></a>
+            <div class="right"><a class="light" href="/edit/<%= @campaign.url %>">Skip</a> ·</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

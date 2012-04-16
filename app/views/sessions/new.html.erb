@@ -1,0 +1,50 @@
+<div class="page">
+	<div class="inner_width">
+		<div class="login_page content boxed_content">
+			<div class="login_page_header icon">
+				<i class="lock"></i>Students Angel Login
+			</div>
+			<div class="clearfix login_page_middle">				
+				<div class="login_col">
+					<%= form_tag sessions_path do %>					
+						<input type="hidden" value="05de3ba52cd940a4943f92c0728159e4" name="_xsrf">
+						<div class="formRow clearfix">
+							<label for="username">Email</label>
+							<div class="formValue">
+								<%= text_field_tag :email, params[:email] %>								
+							</div>
+						</div>
+						<div class="formRow clearfix">
+							<label>Site Password:</label>
+							<div class="formValue login_as_passwd">
+								<%= password_field_tag :password %>
+								<div class="login_loggedin">
+									<input type="checkbox" value="y" name="long_session" id="long_session" checked="">
+									<label for="long_session">Keep me logged in</label>
+									<br>
+									<br>
+								</div>
+								<input type="hidden" value="/" id="next" name="next">
+								<div class="clearfix login_page_btn_cnt">
+									<%= submit_tag "Login" %>
+									<img class="lgreen_btn_ajax" src="http://fundly.com/static/images/ajax-loader-green.gif?v=9ed2c">
+									<span>&nbsp;&nbsp;or <a href="/account/create/user"><b>Sign up for Students Angel</b></a></span>
+								</div>
+								<br>
+								<br>
+								<div class="clearfix">
+									<a href="/account/forgot-password?email=">Forgot your password?</a>
+									&nbsp;&nbsp;|&nbsp;&nbsp; <a href="/admin">Looking for old Students Angel?</a>
+								</div>
+								<br>
+								<span class="icon login_page_fb login_page_process">									
+									<%= link_to "Login using Facebook", Api.url, :id => "facebook_login_id", :class => 'fb_login' %><i class="fb"></i> 
+									</span>
+							</div>
+						</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

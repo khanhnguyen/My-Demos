@@ -1,0 +1,37 @@
+<%= div_for link, :class => 'content_size' do %>
+  <% if link.image %>
+    <div class="thumbnail">
+      <% if link.callback_url %>
+        <%= link_to image_tag(link.image),"javascript:void(0)" %>
+        <%= link_to image_tag("btn/btn_play.png", :class => "play_button"),"javascript:void(0)" %>
+        <%= javascript_tag do %>
+          $("#link_<%= link.id.to_s %> img").each(function(){
+            $(this).click(function(){
+              SocialStream.Linkser.openCallback("link_<%= link.id.to_s %>", "<%= link.callback_url %>", "<%= link.width %>", "<%= link.height %>");
+            });
+          });
+          
+        <% end %>
+      <% else %>
+        <%= link_to image_tag(link.image),link.url, :target => "_blank" %>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="info">
+    <% if link.title %>
+      <div class="title">
+        <%= link.title %>
+      </div>
+    <% end %>
+    <div class="url">
+      <%= link_to link.url, link.url, :target => "_blank" %>
+    </div>
+    <% if link.description %>
+      <div class="description">
+        <%= auto_link(link.description) %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<br class="clearfloat">

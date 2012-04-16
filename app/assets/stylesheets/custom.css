@@ -1,0 +1,56 @@
+#habitat_updates_textarea {
+    display: block;
+    font-size: 12px;
+    line-height: 140%;
+    max-width: 628px;
+    min-height: 60px;
+    padding: 5px;
+    width: 628px;
+}
+
+#welcome {
+  padding: 40px 140px;
+}
+
+#remember label {
+  width: 125px;
+}
+.form_row .form_label label {
+  width: 130px;
+}
+
+.form_row {
+  line-height: 35px;
+}
+
+.fb_connect {
+  padding-left: 135px;
+}
+
+fieldset.form_row legend {
+  padding-left: 135px;
+}
+
+#error_explanation {
+  color: red;
+}
+
+#remember {
+  padding-left: 115px;
+}
+
+#devise_links {
+  padding-left: 133px;
+}
+
+#login .title {
+  padding-left: 133px;
+}
+
+#login .form_row text_field {
+  width: 45px;
+}
+
+.members-login {
+width: 320px !important;
+}

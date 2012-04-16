@@ -1,0 +1,4 @@
+development:
+  bin_path: "/usr/bin"
+  port: 9313
+  morphology: stem_en

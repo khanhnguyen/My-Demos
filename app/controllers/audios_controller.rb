@@ -1,0 +1,2 @@
+class AudiosController < DocumentsController
+end

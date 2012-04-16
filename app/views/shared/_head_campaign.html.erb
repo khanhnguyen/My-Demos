@@ -1,0 +1,70 @@
+<div id="home_header">
+  <div style="margin-bottom: 0;" class="dash_section">
+    <div style="margin-bottom: 0;" class="profile_title2">
+      <h2>
+        <% if @campaign.photos.blank? %>
+          <img src="http://fundly.com/static/images/cause_logo.png" id="cause-logo" alt=""/>
+        <% else %>
+          <%= image_tag @campaign.photos.first.cover_image.thumb("212x174#").url %>
+        <% end %>
+        <%= @campaign.name %>
+      </h2>
+      <div style="clear: both"></div>
+    </div>
+    <div class="right">
+      <div class="normal" id="campaign_selector_div">
+        <select name="name">
+          <% Campaign.find_all_by_user_id(current_user.id).each do |campaign|%>
+            <option <%= "selected='selected'" if campaign.id.eql? @campaign.id %> value="<%= campaign.id %>"><%= campaign.name %></option>
+          <% end %>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="clearfix home_separator"></div>
+  <div class="dash_section" id="big_numbers_div">
+    <div id="dash_Students Angel_score" style="width: 250px;" class="left dash_bignumbers" title="Your Students Angel Score™ shows how your campaign is growing. The higher your campaign's Students Angel Score™ the better. It is calculated using a formula that takes into account the amount of money you've raised, your average donation size, the number of supporters you have, the number of individual fundraisers you have and the number of times your campaign page has been shared through social networks. Campaigns with the highest Students Angel Scores are considered for promotion as 'Featured Campaigns' on our homepage.">
+      <div class="left">
+        <img src="http://fundly.com/static/images/egg_icon.png?v=7a74c" alt=""/>
+      </div>
+      <div class="left">
+        <span id="Students Angel_score_span">1</span>
+        <br/>
+        <p class="right">
+								Students Angel SCORE&trade;
+        </p>
+      </div>
+    </div>
+    <div id="dash_supporter_count" style="width: 175px;" class="left dash_bignumbers">
+      <div class="left">
+        <span>1</span>
+        <br/>
+        <p class="right">
+								SUPPORTERS
+        </p>
+      </div>
+    </div>
+    <div id="dash_donor_count" style="width: 175px;" class="left dash_bignumbers">
+      <div class="left">
+        <span>0</span>
+        <br/>
+        <p class="right">
+								DONORS
+        </p>
+      </div>
+    </div>
+    <div id="dash_raised" style="width: 320px;" class="left dash_bignumbers">
+      <div class="right">
+        <span class="right"> $0 </span>
+        <br/>
+        <p class="right">
+								RAISED
+        </p>
+      </div>
+    </div>
+    <div id="dash_fb_shares" style="display: none;">
+      <span>0</span>
+    </div>
+  </div>
+  <div class="clearfix home_separator"></div>
+</div>

@@ -1,0 +1,14 @@
+<div id="photo_from_local" class="formRow clearfix donation_inputs photo_url">
+  <%= form_for @contact, :url => "/demo"do |f| %>
+    <label>Photo Image:</label>
+    <div class="formValue">
+      <%= f.text_field :email %>
+    </div>
+    <div class="formValue">
+      <%= f.password_field :password %>
+    </div>
+    <div class="formValue">
+      <%= f.submit "Upload", :id => "submit_from_local" %>
+    </div>
+  <% end %>
+</div>

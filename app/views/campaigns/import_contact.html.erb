@@ -1,0 +1,125 @@
+<link href="/assets/component__popup-datauri.css" media="all" rel="stylesheet" type="text/css" />
+<style>
+  #facebox .content {
+    background: none !important;
+  }
+  #facebox .popup {
+    border: none !important;
+    box-shadow: none !important;
+  }
+  a.close {
+    display: none !important;
+  }
+</style>
+
+<div id="contact_importer" class="contact_importer_component popup_component">
+  <div class="popup_wrapper">
+    <div class="popup_container">
+      <div class="popup_title">Import your contacts!</div>
+      <div class="popup_content"><div class="import_options_container clearfix">
+          <ul class="import_options">
+            <li><a title="" data-webmail="email" data-action="webmail" data-importtype="gmail" class="io gmail" style=""></a></li>
+            <li><a title="Yahoo!" data-webmail="email" data-action="webmail" data-importtype="yahoo" class="io yahoo"></a></li>
+            <li><a title="Windows Live/Hotmail" data-webmail="email" data-action="webmail" data-importtype="windows-live" class="io windows-live"></a></li>
+            <li><a title="Outlook/Outlook Express" data-action="csv" data-importtype="outlook" class="io outlook"></a></li>
+            <li><a title="Apple Mail" data-action="csv" data-importtype="apple-mail" class="io apple-mail"></a></li>
+            <li><a title="CSV file" data-action="csv" data-importtype="csv" class="io csv"></a></li>
+            <li><a data-action="other" class="io">other</a></li>
+          </ul>
+        </div>
+        <div style="z-index:2;position:relative" class="indicator_row"></div>
+        <div style="z-index:1;position:relative" class="contact_importer_content">
+          <div class="notification_msg" style="display: none;"></div>
+          <div class="webmail" style="display: block;">
+            <div class="oauth-login clearfix" style="display: none;">
+              <div><p>To import your contacts from GMail you must login first. All Google App accounts should use this method aswell.</p></div>
+              <p style="font-size:0.95em">Having problems? <a data-webmail="email" data-action="webmail" class="change-content-pane">Try a email and password instead</a></p>
+            </div>
+            <div style="" class="email-login clearfix">
+              <div class="clearfix formRow">
+                <label for="email">Email<span>*</span></label>
+                <div class="formValue">
+                  <input type="email" data-validation="" placeholder="" value="" name="email" id="email" class="inputtext"/>
+                </div>
+              </div>
+              <div class="clearfix formRow">
+                <label for="pwd">Password<span>*</span></label>
+                <div class="formValue">
+                  <input type="password" data-validation="" placeholder="" value="" name="password" id="password" class="inputtext"/>
+                  <p>we don't ever store your details!</p>
+                </div>
+              </div>
+              <input type="hidden" id="webmail_type" value="gmail"/>
+            </div>
+          </div>
+          <div style="display:none" class="csv">
+            <div class="csv_upload">
+              <div>
+                <label><input type="radio" value="o" name="file_format" id="file_format_o"/> Outlook (CSV) <span>instructions</span></label>
+                <ol>
+                  <li>Launch Outlook</li>
+                  <li>Switch to Contact view</li>
+                  <li>Go to File menu, select "Import/Export". Import and Export Wizard window appears.</li>
+                  <li>Select "Export to a file". Click Next.</li>
+                  <li>Select "Comma Separated Values" (DOS or Windows). Click Next. </li>
+                  <li>Select where to save the CSV file. Click Next.</li>
+                  <li>Click Finish.</li>
+                </ol>
+              </div>
+              <div>
+                <label><input type="radio" value="oe" name="file_format" id="file_format_oe"/>  Outlook Express (CSV) <span>instructions</span></label>
+                <ol>
+                  <li>Launch Outlook Express</li>
+                  <li>Go to File » Export » Address Book menu. Address book export tool appears. </li>
+                  <li>Select "Text File (Comma Separated Values)". Click Export.</li>
+                  <li>Select where to save the CSV file. Click Next.</li>
+                  <li>Click Finish </li>
+                </ol>
+              </div>
+              <div>
+                <label><input type="radio" value="tbldif" name="file_format" id="file_format_tbldif"/> Mozilla Thunderbird (LDIF) <span>instructions</span></label>
+                <ol>
+                  <li>Launch Mozilla Thunderbird</li>
+                  <li>Go to Tools » Address Book menu. Address book window appears.</li>
+                  <li>Go to Tools » Export menu.</li>
+                  <li>Select path to save file. LDIF is selected by default. Click save.</li>
+                </ol>
+              </div>
+              <div>
+                <label><input type="radio" value="vcf" name="file_format" id="file_format_vcf"/> Mac OS Address Book (or any vCard) <span>instructions</span></label>
+                <ol>
+                  <li>Open Mac OS X Address Book</li>
+                  <li>Select all your contacts</li>
+                  <li>From the "File" menu, select "Export" then "Export vCard" and save.</li>
+                  <li>Select the saved file for upload.</li>
+                </ol>
+              </div>
+            </div>
+            </div>
+          <div style="display:none" class="other">
+            <ul>
+              <li class="clearfix"><a data-webmail="email" data-action="webmail" class="change-content-pane"><span class="other-link aol"></span> Get your contacts from AOL Mail</a></li>
+              <li class="clearfix"><a data-importtype="thunderbird" data-action="csv" class="change-content-pane"><span class="other-link thunderbird"></span> Get your contacts from Mozilla Thunderbird</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      <div class="popup_footer clearfix">
+        <div class="popup_footer_left_btns">
+
+        </div>
+        <div class="popup_footer_right_btns">
+          <a data-action="hide" class="btn" id="prb_0" style="display: none;">
+            <span data-action="hide">Done</span>
+          </a>
+          <a data-action="complete_action" class="btn" id="prb_1">
+            <span data-action="complete_action">Login!</span>
+          </a>
+          <a data-action="hide" class="text" id="prb_2">Cancel</a>
+        </div>
+      </div>
+      <div style="display:none" class="popup_internal_overlay"><div id="processing-content"></div></div>
+    </div>
+  </div>
+</div>

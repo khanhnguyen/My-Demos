@@ -1,0 +1,196 @@
+<% content_for :stylesheets do %>
+  <%= stylesheet_link_tag "facebox", "message_centre-datauri" %>
+<% end %>
+<% content_for :javascripts do %>
+  <%= javascript_include_tag "facebox", "tinymce-jquery" %>
+<script type="text/javascript">
+  $(function() {
+    $('textarea.tinymce').tinymce({
+      theme: 'advanced'
+    });
+  });
+</script>
+<% end %>
+<div class="page">
+  <div class="inner_width">
+    <div class="dashhome_content clearfix">
+      <%= render '/shared/head_campaign' %>
+      <div id="dashhome_tabsbody" class="left tabs_body">
+        <div class="" tab="default">
+          <div class="clearfix" id="home_dash_userblocks">
+            <div class="square_imageblocks_large clearfix">
+              <span>SUPPORTERS</span>
+              <hr/>
+              <a original-title="Khanh Nguyen" class="large_imagelink tooltip first" href="/user/khanhnguyen">
+                <img src="http://pic.fundly.com/q_BJVtbFIkHg.jpeg"/>
+              </a>
+            </div>
+            <div class="square_imageblocks_large clearfix">
+              <span>DONORS</span>
+              <hr/>
+            </div>
+            <div class="square_imageblocks_large clearfix">
+              <span>FUNDRAISERS</span>
+              <hr/>
+              <a original-title="Khanh Nguyen" class="large_imagelink tooltip first" href="/user/khanhnguyen">
+                <img src="http://pic.fundly.com/q_BJVtbFIkHg.jpeg"/>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div tab="recruit">
+          <div class="dash_section">
+            <div class="dash_section_head"><div class="clearfix">
+                <span class="left">CONTACTS (345,876)</span>
+                <a class="right" href="#">See All</a>
+              </div></div>            
+          </div>
+          <div class="dash_section">
+            <div class="dash_section_head"><div>
+                INVITE BY EMAIL
+              </div></div>
+            <div class="dash_section_body dash_invsh">
+              Invite your contacts (Gmail, AOL, Hotmail, Yahoo, etc.)
+              <div class="formRow clearfix">
+                <label>Email</label>
+                <div class="formValue">
+                  <input type="text" class="inputtext"/>
+                </div>
+              </div>
+              <div class="formRow clearfix">
+                <label>Password</label>
+                <div class="formValue">
+                  <input type="password" class="inputtext"/>
+                </div>
+              </div>
+              <div class="clearfix">
+                <a class="btn dblue_btn right" href="#"><span>Retrieve Contacts</span></a>
+              </div>
+              or invite email addresses:
+              <textarea watermark="Type a list of invitee email addresses." class="inputtext watermark">Type a list of invitee email addresses.</textarea>
+              <div class="clearfix">
+                <a class="btn dblue_btn right" href="#"><span>Send Invites</span></a>
+              </div>
+            </div>
+          </div>
+          <div class="dash_section">
+            <div class="dash_section_head"><div>
+                SHARE THIS LINK ON FACEBOOK
+              </div></div>
+            <div class="dash_section_body dash_invsh dash_invsh2">
+              <input type="text" value="http://fundly.com/nguyen" class="inputtext"/>
+              <textarea class="inputtext">Help nguyen out by becoming a volunteer on our new page on Fundly.com! http://fundly.com/nguyen</textarea>
+              <!-- div class="clearfix">
+              <span class="right">40 characters remaining</span>
+              </div -->
+              <div class="clearfix">
+                <a class="btn dblue_btn right" href="#"><span>Share on Facebook</span></a>
+                <!-- a href="#" class="btn dblue_btn right"><span>Tweet on Twitter</span></a -->
+              </div>
+            </div>
+            <div class="dash_invsh dash_section_copy">
+              <b>or use this link with friends:</b> 
+              <input type="text" value="http://fundly.com/nguyen" class="inputtext"/>
+              <a class="btn dblue_btn" href="#"></a>
+            </div>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+          </div>
+        </div>
+        <div class="selected" id="message_centre_div">
+          <div class="dash_section_head">
+            <div class="icon"><i class="email"></i>PROMOTE YOUR CAMPAIGN THROUGH EMAIL</div>
+          </div>
+          <div style="width:100%;height:800px;overflow:hidden;" id="widget-container">
+            <div id="widget-container">
+              <form method="post" enctype="multipart/form-data" class="contact-importer csv-uploader" action="http://fundly.com/widget/contact_importer/csv" accept-charset="UTF-8">
+                <div style="margin:0;padding:0;display:inline">
+                  <input type="hidden" value="✓" name="utf8"/>
+                  <input type="hidden" value="m9cmEWfjq8Fx+f/NphE0Lr8huwUXK2eVkN4VeG04oMA=" name="authenticity_token"/>
+                </div>
+                <div style="display:none" id="message-centre-msg"></div>
+                <div class="clearfix formRow">
+                  <span>To:</span>
+                  <div id="email_input" class="email_input_component" style="width: 1430px;">
+                    <div id="email_input_container">
+                      <input type="text" placeholder="Start typing email addresses or click &quot;Import Contacts&quot;" id="email_input_field" style="width: 345px;" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"/>                      
+                    </div>
+                    <div style="display:none;" id="email_input_choices">
+                      <ul></ul>
+                    </div></div>
+                </div>
+
+                <div class="toplevel clearfix">
+                  <div class="processing_img" style="display: none;"></div>
+                  <a class="btn dblue_btn med_btn" id="import_contacts"><span>My Contact List (93)</span></a>
+                  <ul class="import_options">
+                    <li><a title="GMail" data-importtype="gmail" class="io gmail" href="#"></a></li>
+                    <li><a title="Yahoo!" data-importtype="yahoo" class="io yahoo" href="#"></a></li>
+                    <li><a title="Windows Live/Hotmail" data-importtype="windows-live" class="io windows-live" href="#"></a></li>
+                    <li><a title="Outlook/Outlook Express" data-importtype="outlook" class="io outlook" href="#"></a></li>
+                    <li><a title="Apple Mail" data-importtype="apple-mail" class="io apple-mail" href="#"></a></li>
+                    <li><a title="CSV file" data-importtype="csv" class="io csv" href="#"></a></li>
+                    <li><a data-importtype="other" class="io">other</a></li>
+                  </ul>
+                </div>
+                <br/>
+                <br/>
+                <div class="clearfix formRow">
+                  <span>Template:</span>
+                  <select id="template_selector">
+                    <optgroup label="Template">
+                      <option value="0">New Blank Message</option>
+                    </optgroup>
+                    <optgroup label="Template">
+                      <option value="1">1. Example First Email (A)</option>
+                      <option value="3">3. Example Follow-up Email (A)</option>
+                      <option value="2">2. Example First Email (B)</option>
+                      <option value="5">5. Example Thank You Email</option>
+                      <option value="4">4. Example Follow-up Email (B)</option>
+                    </optgroup>
+                  </select>
+                </div>
+                <div class="clearfix formRow">
+                  <span>Subject:</span>
+                  <input type="text" placeholder="Subject Line" id="subject" value="" name="subject" style="width: 1422px;"/>
+                </div>
+                <div id="editor-container">                  
+                  <textarea class="tinymce" cols="55" rows="20" name="message">Hello</textarea>
+                </div>
+                <div class="footer-btns clearfix">
+                  <a class="btn dblue_btn med_btn" id="send_email"><span>Send!</span></a>
+                  <div style="display:none;" class="processing_img"></div>
+                  <a id="preview_email_btn">Preview Email</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <%= render '/shared/campaign_menu' %>
+      </div>
+    </div>
+  </div>
+  <div style="clear:both" class="footer">
+    <div class="footer_bottom clearfix">
+      <div class="right">
+        <a href="/contact-us">Contact Us</a>
+        &nbsp;|&nbsp; <a href="/terms-of-use">Terms of Use</a>
+        &nbsp;|&nbsp; <a href="/privacy-policy">Privacy Policy</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a id="report_inappropriate_content" activity_id="BV5yYFzDMm" href="#">Report Inappropriate Content</a>
+      </div>
+      <div class="left">
+        <small class="grey">Copyright (c) 2011 Students Angel All rights reserved</small>
+      </div>
+    </div>
+  </div>
+  <div class="home_sub_footer">
+    <br/>
+    <b>Easy Fundraising Online with Students Angel</b>
+    <br/>
+    <br/>
+    <p>
+	Students Angel enables causes to simply create, promote, and manage effective online fundraising campaigns. By using Students Angel to fundraise for your cause, you can raise money online fast and easy by using our proven social media fundraising tools. Engage with, and accept donations from your donors and gain new ones via Facebook, Twitter, LinkedIn, and other social fundraising channels when using our highly effective <a href="http://www.fundly.com" target="_blank">online fundraising</a> platform that will allow your supporters to help fundraise on behalf of your cause. To learn more and create your free account, visit: <a href="http://www.fundly.com" target="_blank">fundly.com.</a>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,108 @@
+<div class="subheader">
+	<div class="inner_width clearfix">
+		<div class="left">
+			<h2>Sign Up</h2>
+			<h3>Get started with sign up</h3>
+		</div>
+		<div style="width:70px" class="right clearfix"></div>
+	</div>
+</div>
+<div class="page">
+	<div class="inner_width">
+		<!-- <script language="javascript">$(function() {mpq.push(["track", "view.signup"]); });</script> -->
+		<div id="fb_signup" class="fb_vanilla_signup">
+			<div id="fb_signup_optimizely" class="fb_signup_optimizely" style="float: left;width: 505px;min-height: 370px;">
+				<div style="padding: 10px">
+					<p style="height: 10px;"></p>
+					<p style="font-family: 'lucida grande',Tahoma,Verdana,Arial,sans-serif; font-size: 18px; color: rgb(128, 128, 128);">
+						<span style="font-size: x-large;">Once you finish signing up here, you will be able to:
+							<br/>
+							<br/>
+						</span>
+					</p>
+					<p style="height: 20px;"></p>
+					<p style="font-family: 'lucida grande', Tahoma, Verdana, Arial, sans-serif; font-size: 20px; display: none; "></p>
+					<p style="font-family: 'lucida grande',Tahoma,Verdana,Arial,sans-serif; font-size: 20px;">
+						<span style="color: rgb(0, 0, 255); font-size: large; position: relative; left: 1px; top: -27px;">Create a Personal Fundraising Page to raise money for your chosen cause
+							<br/>
+							<br/>
+							Promote your cause via social networks
+							<br/>
+							<br/>
+							Raise money and grow your cause</span>
+					</p>
+					<p style="font-family: 'lucida grande',Tahoma,Verdana,Arial,sans-serif; font-size: 20px;">
+						<span style="color: #0000ff; font-size: large; position: relative; left: 1px; top: -27px;">&nbsp;</span>
+					</p>
+					<p style="font-family: 'lucida grande',Tahoma,Verdana,Arial,sans-serif; font-size: 20px;">
+						<span style="color: #0000ff; font-size: large; position: relative; left: 1px; top: -27px;">&nbsp;</span>
+					</p>
+					<p style="font-family: 'lucida grande',Tahoma,Verdana,Arial,sans-serif; font-size: 20px;">
+						<span style="color: #0000ff; font-size: large; position: relative; left: 1px; top: -27px;"><span style="color: #808080;">You can create your account with Facebook or use an email and password.</span>
+							<br/>
+						</span>
+					</p>
+				</div>
+				<p style="padding: 30px 0; text-align: center; font-size: 20px; color: #263b71;"></p>
+				<div style="width: 200px; margin: auto;">
+          <img src="" style="max-width: 200px; max-height: 200px;"/>
+				</div>
+			</div>
+			<div id="fb_signup_register" class="fb_signup_register">
+				<div width="550" style="border:none;overflow:hidden;width:550px;min-height: 370px;padding-left: 50px;">											
+					<%= form_for @user, :url => "/create_user", :html => {:id => "non_fb_signup_form", :name => "fb_signup_form"} do |f| %>
+					<h1>Get started with sign up</h1>					
+					<br/>
+					<p>
+					<%= f.text_field :first_name,  :class => "inputtext watermark #{"sw_error" if @user.errors.full_messages.to_s.include? 'First name' }", :id => "non_fb_first_name", :placeholder => "First Name" %>
+					</p>
+					<p>
+					<%= f.text_field :last_name,  :class => "inputtext watermark #{"sw_error" if @user.errors.full_messages.to_s.include? 'Last name' }", :id => "non_fb_last_name", :placeholder => "Last Name" %>
+					</p>
+					<p>
+					<%= f.text_field :email,  :class => "inputtext watermark #{ "sw_error" if @user.errors.full_messages.to_s.include? 'Email' }", :id => "non_fb_email", :placeholder => "Email" %>
+					</p>
+					<p>
+					<%= f.password_field :password,  :class => "inputtext watermark #{ "sw_error" if @user.errors.full_messages.to_s.include? 'Password' }", :id => "non_fb_password", :placeholder => "Password" %>
+					</p>
+					<p>
+					<%= f.password_field :password_confirmation,  :class => "inputtext watermark #{ 'sw_error' if @user.errors.full_messages.to_s.include? 'Password' }", :id => "non_fb_password_confirm", :placeholder => "Re-enter password" %>
+					</p>										
+					<br/>
+					<% if @user.errors.messages.to_s.include? "emailhas already been taken" %>
+					<div class="error_box" style="display: block;">
+						<p>
+							Email has already been taken
+						</p>
+					</div>
+					<% elsif @user.errors.count > 0 %>
+					<div class="error_box" style="display: block;text-align: left;">
+						<p>
+							Marked fields are mandatory
+						</p>
+					</div>
+					<% end %>										
+					<a class="seo_signup_btn" regotype="cause" id="non_fb_register" style="margin-left: 0px"> <span>Sign up</span> </a>
+					<br/>
+				<fieldset  style="margin-left: 0px;">
+					<legend>
+						OR
+					</legend>
+				</fieldset>
+				<br/>
+				<p id="register_with_fb" style="margin-left: 0px;text-align: left">
+					<a href="/account/create/user?signup_supporter=true"> 
+            <%= image_tag "fb-connect-large.png" %>
+          </a>
+				</p>
+				<br/>
+					<p>
+						By clicking above, you agree to our <a href="/terms-and-conditions">Terms of Service</a>
+					</p>
+					<% end %>
+					<br/>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
