@@ -1,0 +1,2 @@
+module JdropHelper
+end
