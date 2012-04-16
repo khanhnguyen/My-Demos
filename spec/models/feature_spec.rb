@@ -1,0 +1,15 @@
+require 'spec_helper'
+
+describe Feature do
+  it "should be valid with a title" do
+    Factory(:feature).should be_valid
+  end
+  it "should be invalid without a title" do
+    Factory.build(:feature, :title => nil).should be_invalid
+  end
+  it "validate association" do
+    association = Feature.reflect_on_association(:scenarios) 
+    association.macro.should == :has_many
+    association.class_name.should == 'Scenario' 
+  end  
+end

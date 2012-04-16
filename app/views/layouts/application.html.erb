@@ -1,31 +1,5 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <title>MyPortfolio</title>
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application" %>
-    <script type="text/javascript">
-      $(document).ready(function(){
-        $(".poplink").click(function () {
-          var boxclass = $(this).attr('id');
-          $(".gone").fadeOut("fast");
-          $('.'+boxclass).fadeIn("fast");
-          return false;
-        });
-        $(".close").click(function () {
-          $(".pop").fadeOut("fast");
-          $('.gone').fadeIn("fast");
-          return false;
-        });
-      });
-    </script>
-    <%= csrf_meta_tags %>
-  </head>
   <body>
-    <%= render '/shared/header' %>
-    <div id="main">
-      <%= yield %>
-    </div>
-    <%= render '/shared/footer' %>
+    <%= yield %>
   </body>
 </html>

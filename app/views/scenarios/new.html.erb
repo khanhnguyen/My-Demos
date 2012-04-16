@@ -1,0 +1,73 @@
+<table>
+    <tr>
+        <td>
+            &nbsp;
+        </td>
+        <td>
+            <h2>New scenario</h2>
+        </td>
+    </tr>
+    <% form_for(@scenario) do |f| %>
+    <tr>
+        <td colspan=2>
+            <%= f.error_messages %>
+        </td>
+    </tr>
+    <% fields_for @feature do |fc| %>
+    <tr>
+        <td colspan=2>
+            <%=fc.hidden_field :id %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <%= fc.label :title, "Feature-Title:" %>
+        </td>
+        <td>
+            <%= fc.text_field :title %>
+        </td>
+    </tr>
+    <%end %>
+    <tr>
+        <td>
+            <%= f.label :title, "Scenario-Title:" %>
+        </td>
+        <td>
+            <%= f.text_field :title %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <%= f.label :given_block, "Given-Block:" %>
+        </td>
+        <td>
+            <%= f.text_field :given_block %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <%= f.label :when_block, "When-Block:" %>
+        </td>
+        <td>
+            <%= f.text_field :when_block %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <%= f.label :then_block, "Then-Block:" %>
+        </td>
+        <td>
+            <%= f.text_field :then_block %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            &nbsp;
+        </td>
+        <td>
+            <%= f.submit 'submit' %>
+            &nbsp;&nbsp;<%= link_to 'Back', @feature %>
+        </td>
+    </tr>
+    <% end %>
+</table>
