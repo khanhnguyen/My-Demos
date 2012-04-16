@@ -1,0 +1,193 @@
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.2/prototype.js"></script>
+<%= javascript_include_tag "my_javascript" %>
+<%=stylesheet_link_tag 'style_app' %>
+<%= calendar_date_select_includes "blue" %> 
+<style>
+.dh_new_media_shell {
+float: right;
+margin: 7px 0 0 10px;
+} .dh_new_media {
+background: transparent url(/images/new_media_button.gif) no-repeat scroll left top;
+color: #777777;
+display: block;
+float: left;
+text-decoration: none;
+} .tr {
+background: transparent url(/images/new_media_button.gif) no-repeat scroll right top;
+} .bl {
+background: transparent url(/images/new_media_button.gif) no-repeat scroll left bottom;
+} .br {
+background: transparent url(/images/new_media_button.gif) no-repeat scroll right bottom;
+} .span {
+background: transparent url(/images/new_media_button_plus.gif) no-repeat scroll left center;
+color: #333333;
+display: block;
+font-size: 11px;
+font-weight: bold;
+margin-left: 9px;
+padding: 3px 9px 5px 13px;
+text-shadow: 0 1px 1px white;
+}
+</style>
+<script type="text/javascript">
+function loadMap(){
+if (VBrowserIsCompatible()) {
+var map = new VMap(document.getElementById('container'));
+map.disableScrollWheelZoom();
+map.enableContinuousZoom();
+var array = new Array(<%=@long_lat_array%>)
+var ll = new String(array[array.length-1]);
+lng_lat1 = ll.split(",");
+
+var pt = new VLatLng(lng_lat1[0], lng_lat1[1]);
+map.setCenter(pt, 7);
+
+var name_place="";
+for (var i = 0; i < array.length; i++) {	
+var long_lat = new String(array[i]);
+long = long_lat.split(",");
+var lng = ""
+var lat = ""
+
+for (var j = 0; j < 3; j++) {
+if (j == 0) {
+lng = long[0];
+}
+if (j == 1) {
+lat = long[1];
+}
+if (j==2) {
+name_place =long[2];
+}
+}
+var lng_lat = new VLatLng(lng, lat);
+var marker = new VMarker(lng_lat, new VIcon());
+map.addOverlay(marker);
+VEvent.addListener(marker, "click", function(overlay,latlng) {
+marker.openInfoWindow(lng_lat1[2]);
+});
+}
+}
+}
+</script>
+<script type="text/javascript" src="http://www.vietbando.com/API/VBDMapAPI.js?key=jSwEQzgO5MpfVPTv9f3NyMQSdjYvI0NMNkAJg3BdWTs=">
+</script>
+</head>
+<body>
+<div style="float:left;width:80px;">
+	<%unless @trips.blank?%>
+	<img src="<%=@trips[0].url_image%>"/>
+	<br/>
+	<%=@trips[0].user_name%> 
+	<br/>
+	<%end%>
+	</div>	 
+	<div>
+		<div style="float:left">
+			<textarea name="" id="" style="width:200px;height:25px;"></textarea>
+		</div>
+		<div>
+			&nbsp;&nbsp;&nbsp;<input type="button" value="Share"/>
+		</div>
+		<br/>
+		<%unless @trips.blank?%>
+		go to		
+		<%for trip in @trips%>
+		<%=trip.locat_name%>
+		<%end%>
+		<%end%>
+	</div>
+	<br/>
+<div class="dh_new_media_shell" style="margin-right:50px">
+<a class="dh_new_media" href="javascript:showMe('theLayer');" onclick="$('theLayer').show();">
+<div class="tr">
+<div class="bl">
+<div class="br">
+<span class="span">Add a Trip</span>
+</div>
+</div>
+</div>
+</a>
+</div>
+<br/>
+<br/>
+<div>
+<b><i>Your Travel Map</i></b>
+</div>
+<div id="maps_vietnam">
+<body onload="loadMap()">
+<div id="container" style="width:700px; height:650px;position:absolute; border:solid 2px #0066cc">
+</div>
+</body>
+</div>
+<!-- make trip from-->
+<div id="theLayer" style="position:absolute;top:180px;width:250px;left:200px;z-index:101;visibility:hidden;">
+<table class="pop_dialog_table" id="pop_dialog_table">
+<tr>
+<td class="pop_topleft"/><td class="pop_border"/><td class="pop_topright"/>
+</tr>
+<tr>
+<td class="pop_border"/>
+<td id="pop_content" class="pop_content">
+<h2 class="dialog_title" style="width:99.6%;"><span>&nbsp;&nbsp;Make trip</span></h2>
+<div class="dialog_content">
+<% form_tag(:controller=>'myprofile',:action => 'create_trips') do %>
+<div class="dialog_body">
+<div class="font_standand" style="width:80px;float:left;">
+Location
+</div>
+<div>
+<%=select_tag(:location_id_basic,options_from_collection_for_select(@locations, :id, :name)) %>
+</div>
+<div class="font_standand" style="width:80px;float:left;">
+Start date
+</div>
+<div>
+<%= calendar_date_select_tag "start_trip" %>
+</div>
+<div class="font_standand" style="width:80px;float:left;">
+End date
+</div>
+<div>
+<%= calendar_date_select_tag "end_trip" %>
+</div>
+<div style="width:80px;float:left;">
+&nbsp;
+</div>
+<div id="dialog_buttons" class="dialog_buttons" align="left">
+<input type="submit" id="dialog_button1" value="Make trip" class="inputsubmit"/><input type="button" onClick="hideMe('theLayer');return false" id="dialog_button2" value="Cancel" class="inputsubmit inputaux"/>
+</div>
+</div><%end %>
+</div>
+</td><td class="pop_border"/>
+</tr>
+<tr>
+<td class="pop_bottomleft"/><td class="pop_border"/><td class="pop_bottomright"/>
+</tr>
+</table>
+</div><!--<div style="width:738px;border: 6px solid rgb(210, 217, 230); margin: 0px; position: relative;">
+<div style="border: 1px solid rgb(133, 152, 192); padding: 5px; position: relative;">
+<div style="width:80px;float:left;">
+Location
+</div>
+<div>
+<%=select_tag(:location_id_basic,options_from_collection_for_select(@locations, :id, :name),:onchange=>"#{remote_function(:url => {:action=>'search_community',:search_basic=>true},:with => "'location_id='+this.value",:update =>'search_result',:style=>"width:200px;font-family: 'lucida grande'")}") %>
+</div>
+<div style="width:80px;float:left;">
+Start date
+</div>
+<div>
+<%= calendar_date_select_tag "time_search" %>
+</div>
+<div style="width:80px;float:left;">
+End date
+</div>
+<div>
+<%= calendar_date_select_tag "time_search" %>
+</div>
+</div>
+</div> -->
+</body>
+</html>

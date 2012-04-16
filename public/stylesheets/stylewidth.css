@@ -1,0 +1,320 @@
+body {	
+	font: normal 12px Verdana, Arial, Helvetica, sans-serif;	
+}
+.small {
+	font-size: 11px;
+	line-height:1.2em;
+}
+.small2 {
+	font-size: 10px;
+	line-height:1.15em;
+}
+.small3 {
+	font: normal 11px Arial, Helvetica, sans-serif;
+	line-height:1.15em;
+}
+.small4 {
+	font: normal 11px Arial, Helvetica, sans-serif;
+	line-height:1.15em;
+	color:#666666;
+}
+h1, h2, h3, h4 {
+	padding: 0;
+	margin: 0;
+}
+a {
+	color:#0078B3;
+	text-decoration: none;
+}
+a:visited {
+	color:#800080;
+	text-decoration: none;
+}
+a:hover {
+	color:#CC3366;
+	text-decoration: underline;
+}
+.h3c {
+	font-size: 12px;
+	background-color: #E6E6E6;
+	padding: 3px;
+	border-top: 2px solid #0080C0;
+}
+.h3content {
+	border-left: 1px solid #0080C0;
+	border-right: 1px solid #0080C0;
+	border-bottom: 1px solid #0080C0;
+}
+#wrapper {
+	width: 760px;
+	margin: 0 auto;		
+}
+#masthead {
+	color: #000000;	
+}
+#masthead .logo {
+	float: left;
+}
+#masthead .topmenu {
+	float: left;
+	margin: 22px 0px 0px 20px;
+	text-transform: uppercase;
+	font: bold 14px Arial, Helvetica, sans-serif;
+}
+#masthead .topmenu a, .topmenu a:visited {
+	text-decoration: none;
+	color:#004080;
+	font-weight: bold;
+}
+#masthead .topmenu a:hover {
+	text-decoration: underline;
+	color:#FF0000;
+}
+#masthead .topsearch {
+	float: left;
+	margin: 15px 0px 0px 30px;
+}
+#column_wrapper {
+	/*border-top: 1px dotted #999999;*/
+	border-bottom: 1px dotted #999999;
+	padding: 10px 0 10px 0;	
+}
+#left {
+	width: 170px;
+	float: left;
+	background-color: #FFF;
+}
+#left .content {
+	padding: 0px 0px;
+}
+#center {
+	width: 587px;
+	float: left;
+	background-color: #FFF;
+}
+#center .content {
+	padding: 0px 10px 0px 10px;
+}
+#center2 {
+	width: 800px;
+	float: right;
+	background-color: #FFF;
+}
+#center2 .content {
+	padding: 0px 10px 0px 10px;
+}
+#right {
+	width: 300px;
+	float: left;
+	background-color: #FFF;
+}
+#right .content {
+	padding: 0px 0px;
+}
+#footer {
+	color: #000000;
+	background-color: #FFF;
+}
+#footer .content {
+	padding: 10px;
+	text-align: center;
+	font-size: 11px;
+	color:#666666;
+}
+.clearfloat {
+	clear: both;
+	height: 0;
+	line-height: 0;
+	font-size: 0;
+	padding: 0;
+	margin: 0;
+}
+.list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.list li {
+	font-size: 11px;
+	display:block;
+	margin: 0px;
+	padding: 1px 0 2px 7px;
+	background: url(/images/bullet.gif) 0 5px no-repeat;
+	border-bottom: 1px dotted #E8E8E8;
+}
+.list a, .list a:visited {
+}
+.list a:hover {
+	border-color: #FF0000;
+}
+.menu li {
+	font-size: 10px;
+	font-weight:bold;
+}
+.musiclist {
+	padding: 4px 0 4px 25px;
+	font-size: 11px;
+	border-bottom: 1px dotted #CCCCCC;
+	background: url(http://www.video4viet.com:8080/video4viet/images/icon_headset.gif) left center no-repeat;
+}
+.nomargintop {
+	margin-top: 0;
+}
+.content p {
+	margin: 12px 0;
+}
+form {
+	margin: 0;
+	padding: 0;
+}
+.A {
+	color:#008000;
+	text-decoration:none;
+}
+.B {
+	color:#9D0000;
+	text-decoration:none;
+}
+.C {
+	color:#FF00FF;
+	text-decoration:none;
+}
+.D {
+	color:#8000FF;
+	text-decoration:none;
+}
+.E {
+	color:#FF0000;
+	text-decoration:none;
+}
+.F {
+	color:#00C1C1;
+	text-decoration:none;
+}
+.thumb {
+	padding: 2px;
+	border: 1px solid #999999;
+}
+.total {
+	font-weight: normal;
+}
+/* news css */
+
+.newstxt {
+	font: normal 16px "Times New Roman", Times, serif;
+}
+.newstxt .title {
+	font-size:20px;
+	font-weight:bold;
+	padding: 0px;
+	margin: 0px 0px 5px 0px;
+	color:#993300;
+}
+.newstxt .subtitle {
+	font-style:italic;
+	padding: 0 0 10px 0;
+	margin: 0px;
+}
+.newstxt .image {
+	/*margin: 10px 0px 10px 10px;
+	float: right;*/
+	margin: 10px auto;
+}
+.newstxt .imgdesc {
+	text-align: left;
+	font-size:12px;
+	background-color:#E2E2E2;
+	padding:5px;
+}
+.newstxt h1 {
+	margin-bottom:5px;
+	margin-top: 5px;
+	font-size:20px;
+}
+.news1 {
+	font: bold 16px Arial, Helvetica, sans-serif;
+}
+.newslistbox {
+	margin-bottom:5px;
+	padding-bottom:5px;
+	border-bottom: 1px solid #CCCCCC;
+	height:120px;
+}
+.lyricrow {
+	border-bottom: 1px dotted #CCCCCC;
+	padding: 2px 0 2px 0;
+}
+#EXim {
+	width:16px;
+	height:16px;
+}
+/*- Menu Tabs J--------------------------- */
+
+.SearchBoxText {
+	font-size:13px;
+	width:250px;
+	border:1px inset #999
+}
+.sb_btn {
+	width:60px;
+	height:22px;
+	margin-left:1px;
+	background:transparent url('/images/search.gif') no-repeat
+}
+
+#tabsJ {
+	float:left;
+	width:100%;
+	/*background: #FFFFFF url('/images/topbg.jpg') top left repeat-x;*/
+	font: bold 12px Arial, Helvetica, sans-serif;
+	text-transform:uppercase;
+	line-height:normal;
+	border-bottom: 3px solid #002D59;
+}
+#tabsJ ul {
+	margin:0;
+	padding:10px 10px 0 180px;
+	list-style:none;
+}
+#tabsJ li {
+	display:inline;
+	margin:0;
+	padding:0;
+}
+#tabsJ a {
+	float:left;
+	background:url("/images/tableftJ.gif") no-repeat left top;
+	margin:0;
+	padding:0 0 0 5px;
+	text-decoration:none;
+}
+#tabsJ a span {
+	float:left;
+	display:block;
+	background:url("/images/tabrightJ.gif") no-repeat right top;
+	padding:6px 11px 5px 6px;
+	color:#00274F;
+}
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+#tabsJ a span {
+	float:none;
+}
+/* End IE5-Mac hack */
+#tabsJ a:hover span {
+	color:#FFF;
+}
+#tabsJ a:hover {
+	background-position:0% -42px;
+}
+#tabsJ a:hover span {
+	background-position:100% -42px;
+}
+
+#tabsJ .tabact a {
+	background-position:0% -42px;
+	color:#FFF;
+}
+#tabsJ .tabact a span {
+	background-position:100% -42px;
+	color:#FFF;
+}

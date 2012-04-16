@@ -1,0 +1,52 @@
+<table width="670">
+    <tr>
+        <td class="font_standand" style="font-size:11px;text-align:justify;width:440px;vertical-align:top;">
+            Ninh Binh is the capital city of Ninh Binh Province in North Vietnam, famous for the nearby Karst scenery and the village of Tam Coc
+            <br/>
+            <b>Get in</b>
+            <br/>
+            <br/>
+            <b>By taxi</b>
+            <br/>
+            Taxis from Hanoi cost 45USD.
+            <br/>
+            <b>By bus</b>
+            <br/>
+            There are regular buses from Hanoi's southern bus terminal (Giap Bat) that leave every 15 minutes (or whenever full).50,000 Dong. Journey time 2.5 hours.
+            Open tour buses will drop passengers off upon request (Ninh Binh is not a regular stop).Most open tour buses from Hanoi will arrive at 21.30. Tour buses from Hue arrive at a rather early 04.00.
+            <br/>
+            <b>By train</b>
+            <br/>
+            Ninh Binh is a regular station for the Reunification Express, with trains coming from both North and South.
+            <br/>
+            <b>Get around</b>
+            <br/>
+            <br/>
+            <b>By bike</b>
+            <br/>
+            A motorbike is the best way to view Ninh Binh and the surrounding areas. Most hotels will offer bikes for rental, or can arrange for a driver to take you around the sites.
+            Cycling is a good option for visiting nearby sights. Finding a bicycle for rental is easy.
+            <br/>
+            <b>By foot</b>
+            <br/>
+            The actual town of Ninh Binh is quite small and walkable. Most of the interesting sights are located 10-20km away
+            <br/>
+            <b>See </b>
+            <br/>
+            * Tam Coc - Located 9km south of Ninh Binh, Tam Coc is one of Vietnam's most spectacular sights. A boat can be hired that will take you through the waterways. Vast limestone cliffs rise out of the rice paddies. The area is somewhat similar to Halong Bay, but more accessible, and much less toursity. 
+            <br/>
+            However- there are a few scams around, and the drink sellers can be very persistent. Most will ask if you would like to buy a drink for the rower. This is usually sold back immediatedly for half price. 
+            The area around Tam Coc is equally beautiful, and is best viewed from the back of a motorbike. There is also a temple atop one of the hills which provides increible views. 
+        </td>
+        <td style="width:130px;vertical-align:top;" id="list_image">
+            <img src="/images/ajax-loader.gif" id="image_load" style="display:none;"/>
+        </td>
+    </tr>
+</table>
+<div style="display:none;">
+    <% form_remote_tag(:url =>{:controller=>'homes',:action=>'loadimage',:id=>"19"},:update=>'list_image',:loading=>"$('image_load').show();",:complete=>"$('image_load').hide();")do %>
+    <input type="submit" value="submit" id="clickload"/><%end %>
+</div>
+<script>
+    $('clickload').click();
+</script>

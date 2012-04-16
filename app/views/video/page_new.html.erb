@@ -1,0 +1,27 @@
+<%count =0 %>
+<%for video in @videos%>
+<%if count==0 %>
+<tr>
+<%end %>
+<td class="font_standand" align="left" style="padding:10px;">
+<%video_object = "<object width='425' height='355'><param name='movie' value='#{video.embed_url}&amp;rel=1&autoplay=1&amp;color1=0x2b405b&amp; color2=0x6b8ab6&amp;border=1&amp;fs=1'><param name='allowFullScreen' value='true'><embed src='#{video.embed_url}&autoplay=1&amp;rel=1&amp;color1=0x2b405b&amp;color2=0x6b8ab6&amp;border=1&amp;fs=1' type='application/x-shockwave-flash' allowfullscreen='true' width='425' height='355'></object>" %>
+<a href="#none" style="border:0px;"><%=image_tag(video.thumbnail_url, :style=>"width:95px;height:95px;border:0px;", :onclick => "$('title_id').innerHTML=\"<b class='font_standand'>#{video.title}</b>\";$('video_display').innerHTML=\"#{video_object}\";") %></a>
+<br/>
+<%=h(truncate(video.title, 16)) %>
+</a>
+</td>
+</td>
+<%count +=1 %>
+<%if count ==5 %>
+</tr>
+<%count =0 %>
+<%end %>
+<%end %>
+<%if count <5 %>
+</tr>
+<%end %>
+<tr>
+<td colspan="5">	
+<%=will_paginate @videos, :class=>"digg_pagination",:style=>"text-align:right;font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;font-size: 12.5px;",:renderer => "RemoteLinkRenderer1",:remote => {:update => "video_update"},:id =>"paginate_remote" %>
+</td>
+</tr>

@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">-->
+<html>
+<head>
+<link href="/stylesheets/style_app.css" type="text/css" rel="stylesheet"/>
+<script src="http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.2/prototype.js"></script> 
+<style>
+.font_standand {
+direction:ltr;
+font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+font-size:11px;
+text-align:left;
+}
+.multiple_select {
+text-align: left;
+border: 1px solid #aaa; 
+height: 130px;
+width: 200px;
+padding: 2px;
+margin: 1em;
+overflow: auto;
+} .multiple_select, .multiple_select ul {
+list-style-type: none;
+} .multiple_select_checkbox {
+background: #fff;
+} .alt {
+background: #eef;
+}
+.font_href{
+direction:ltr;
+font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+font-size:11px;
+line-height:140%;
+text-align:left;
+
+} 
+.place_class {
+margin-left:5px;
+}
+</style>
+<!--[if IE]>
+<style>
+.place_class {
+margin-left:0px;
+}
+.font_href{
+direction:ltr;
+font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+font-size:11px;
+line-height:140%;
+text-align:left;
+font-weight:normal;
+}
+</style>
+<![EndIf]-->
+</head>
+<body>
+  rss feed title: <%= @slashdot_feed.title%>
+<!-- <input id='return' style="position:absolute;z-index:-1;top:50;left:200;" size="1" />-->
+<table>
+<tr>
+<td valign="top" style="width:70px;">
+<div class="box" style="padding-left:0px;padding-top:0px;border: 1px solid rgb(204, 204, 204); padding: 2px 1px; background-color: rgb(255, 255, 255);">
+<ul class="list menu">
+<li>
+<%=link_to_remote "Places", :loading=>"$('content_id').hide();$('img_homes').show();$('place_id').show();$('photo_id').hide();$('video_id').hide();", :complete=>"$('img_homes').hide();$('content_id').show();",:update=>"content_id",:url => {:controller=>"homes",:action => "load_place_famous",:id=>"1"} %>
+</li>
+<table id='place_id' class="place_class">
+<%=loadplacehtml(@locations,"homes","content_id") %>
+</table>
+<li>
+<%=link_to_remote "Videos",:html=>{:class=>".font_href"},:loading=>"$('content_id').hide();$('img_homes').show();$('place_id').hide();$('photo_id').hide();$('video_id').show();", :complete=>"$('img_homes').hide();$('content_id').show();",:update=>"content_id",:url => {:controller=>"video",:action => "index",:id=>21} %>
+</li>
+<table id='video_id' class="place_class" style='display:none;'>
+<%=loadplace(@locations,"video","video1","video_update") %>
+</table>
+<!--<li>
+<%= link_to "Hotels",:html=>{:class=>".font_href"}, :action => "index" %>
+</li>-->
+<li>
+<%=link_to_remote "Photos",:html=>{:class=>".font_href"},:loading=>"$('content_id').hide();$('img_homes').show();$('place_id').hide();$('photo_id').show();$('video_id').hide();", :complete=>"$('img_homes').hide();$('content_id').show();",:update=>"content_id",:url => {:controller=>"photos",:action => "index",:id=>"1"} %>
+</li>
+<table id='photo_id' class="place_class" style='display:none;'>
+<%=loadplace(@locations,"photos","index","content_id") %>
+</table>
+<!--<li>
+<%=link_to_remote "Reviews",:html=>{:class=>".font_href"},:loading=>"$('content_id').hide();$('img_homes').show();$('place_id').hide();$('photo_id').hide();$('review_id').show();$('video_id').hide();",:complete=>"$('img_homes').hide();$('content_id').show();",:update=>"content_id",:url => {:controller=>"travel_search",:action => "search_travel"} %>
+</li>
+<table id='review_id' style='margin-left:6px;display:none;'>
+<%=loadplace(@locations,"travel_search","search_travel","content_id") %>
+</table>-->
+</ul>
+<br/>
+</div>
+<br/>
+<!--map google-->
+</td>
+<!-- end left col -->
+<!-- begin center col -->
+<td valign="top" align="center" style="margin-left:10px;width:670px;border: 1px solid rgb(204, 204, 204); padding: 2px 1px; background-color: rgb(255, 255, 255);" class="box">
+<%=image_tag "ajax-loader.gif",:id=>"img_homes", :style=>"display:none;" %>
+<div id="content_id">
+<table width="100%" cellspacing="1" cellpadding="6" border="0">
+<tr>
+<td>
+<%=@location_vietnam.name %>
+</td>
+</tr>
+<tr>
+<td class="font_standand">
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+<script src="http://static.ak.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php " type="text/javascript">
+</script>
+<script type="text/javascript">
+FB_RequireFeatures(["CanvasUtil"], function(){
+FB.CanvasClient.setCanvasHeight("600px");
+FB.XdComm.Server.init("/xd_receiver.htm");
+FB.CanvasClient.startTimerToSizeToContent();
+});
+</script>
+<link rel="stylesheet" href="/bundles/highslide,pagination,blue.css" type="text/css" media="screen" charset="utf-8" />
+<script src="/bundles/highslide-with-gallery,calendar_date_select.js" type="text/javascript" charset="utf-8"></script>
+
+<%= javascript_include_tag "highslide-with-gallery" %>
+<%= stylesheet_link_tag 'highslide' %>
+<%= stylesheet_link_tag 'pagination' %>
+<%= calendar_date_select_includes "blue" %>
+<!--highslide-->
+<script type="text/javascript">
+hs.graphicsDir = '/images/graphics/';
+hs.captionId = 'the-caption';
+hs.align = 'center';
+hs.transitions = ['expand', 'crossfade'];
+hs.outlineType = 'rounded-white';
+hs.fadeInOut = true;
+//hs.dimmingOpacity = 0.75;
+// Add the controlbar
+hs.addSlideshow({
+//slideshowGroup: 'group1',
+interval: 5000,
+repeat: false,
+useControls: true,
+fixedControls: 'fit',
+overlayOptions: {
+opacity: .75,
+position: 'bottom center',
+hideOnMouseOut: true
+}
+});
+</script>
+<script language="JavaScript">
+function emailCheck(str){
+var at = "@"
+var dot = "."
+var lat = str.indexOf(at)
+var lstr = str.length
+var ldot = str.indexOf(dot)
+// check if '@' is at the first position or   at last position or absent in given email 
+if (str.indexOf(at) == -1 || str.indexOf(at) == 0 ||
+str.indexOf(at) == lstr) {
+//alert("Invalid E-mail ID")
+return false
+}
+// check if '.' is at the first position or at last  position or absent in given email
+if (str.indexOf(dot) == -1 || str.indexOf(dot) == 0 ||
+str.indexOf(dot) == lstr) {
+//alert("Invalid E-mail ID")
+return false
+}
+
+// check if '@' is used more than one times in given email
+if (str.indexOf(at, (lat + 1)) != -1) {
+//alert("Invalid E-mail ID")
+return false
+}
+
+// check for the position of '.'
+if (str.substring(lat - 1, lat) == dot ||
+str.substring(lat + 1, lat + 2) == dot) {
+//alert("Invalid E-mail ID")
+return false
+}
+
+// check if '.' is present after two characters from location of '@'
+if (str.indexOf(dot, (lat + 2)) == -1) {
+//alert("Invalid E-mail ID")
+return false
+}
+
+// check for blank spaces in given email
+if (str.indexOf(" ") != -1) {
+//alert("Invalid E-mail ID")
+return false
+} 
+return true
+}
+function check_mail(){
+email = $('id_email').value;
+if (emailCheck(email) == true) {
+$('error_mail').style.display ="none";
+$('send_mail_button').click();
+}
+else {
+$('error_mail').style.display ="block";
+}
+} 
+</script>
+</body>
+</html>

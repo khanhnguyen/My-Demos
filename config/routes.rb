@@ -1,189 +1,49 @@
-SocialStream::Application.routes.draw do
-  devise_for :users, :controllers => {:omniauth_callbacks => 'omniauth_callbacks'}
+ActionController::Routing::Routes.draw do |map|
+  # The priority is based upon order of creation: first created -> highest priority.
 
-  #======================== Document Routes ====================================
-  resources :pictures
-  resources :audios
-  resources :videos
+  # Sample of regular route:
+  #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
+  # Keep in mind you can assign values other than :controller and :action
 
-  resources :documents do
-    get "download", :on => :member
-  end
+  # Sample of named route:
+  #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
+  # This route can be invoked with purchase_url(:id => product.id)
 
-  # Social Stream subjects configured in config/initializers/social_stream.rb
-  SocialStream.subjects.each do |actor|
-    resources actor.to_s.pluralize do
-      resources :pictures
-      resources :audios
-      resources :videos
+  # Sample resource route (maps HTTP verbs to controller actions automatically):
+  #   map.resources :products
 
-      resources :documents do
-        get "download", :on => :member
-      end
-    end
-  end
+  # Sample resource route with options:
+  #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
+#    map.resources :trips, :collection => { :create_trips => :get }
+  # Sample resource route with sub-resources:
+  #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
 
-  #====================== XMPP Routes===========================================
-  match '/xmpp/setConnection' => "Xmpp#setConnection"
-  match '/xmpp/unsetConnection' => "Xmpp#unsetConecction"
-  match '/xmpp/setPresence' => "Xmpp#setPresence"
-  match '/xmpp/unsetPresence' => "Xmpp#unsetPresence"
-  match '/xmpp/resetConnection' => "Xmpp#resetConnection"
-  match '/xmpp/synchronizePresence' => "Xmpp#synchronizePresence"
-  match '/xmpp/updateSettings'=> "Xmpp#updateSettings"
-  match '/chatWindow'=> "Xmpp#chatWindow"
+  # Sample resource route within a namespace:
+  #   map.namespace :admin do |admin|
+  #     # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
+  #     admin.resources :products
+  #   end
 
+  # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
+  # map.root :controller => "welcome"
 
-  #====================== Linker Routes ========================================
-  match 'linkser_parse' => 'linkser#index', :as => :linkser_parse
+  # See how all your routes lay out with "rake routes"
 
-  #====================== Base Routes ==========================================
-  #Background tasks
-  resque_constraint = lambda do |request|
-    #request.env['warden'].authenticate? and request.env['warden'].user.admin?
-    true
-  end
-
-  constraints resque_constraint do
-    mount Resque::Server, :at => "/resque"
-  end
-
-  match 'home' => 'home#index', :as => :home
-  match 'home' => 'home#index', :as => :user_root # devise after_sign_in_path_for
-
-  # Webfinger
-  match '.well-known/host-meta',:to => 'frontpage#host_meta'
-
-  # Social Stream subjects configured in config/initializers/social_stream.rb
-  SocialStream.subjects.each do |actor|
-    resources actor.to_s.pluralize do
-      resource :like
-      resource :profile
-      resources :activities
-
-      # Nested Social Stream objects configured in config/initializers/social_stream.rb
-      #
-      # /users/demo/posts
-      (SocialStream.objects - [ :actor ]).each do |object|
-        resources object.to_s.pluralize
-      end
-    end
-  end
-
-  # Social Stream objects configured in config/initializers/social_stream.rb
-  #
-  # /posts
-  (SocialStream.objects - [ :actor ]).each do |object|
-    resources object.to_s.pluralize
-  end
-
-  resources :contacts do
-    collection do
-      get 'pending'
-    end
-  end
-
-  namespace "relation" do
-    resources :customs
-  end
-  resources :permissions
-
-  match 'tags'     => 'tags#index', :as => 'tags'
-
-  # Find subjects by slug
-  match 'subjects/lrdd/:id' => 'subjects#lrdd', :as => 'subject_lrdd'
-
-  resource :representation
-
-  resources :settings do
-    collection do
-      put 'update_all'
-    end
-  end
-
-  resources :messages
-
-  resources :conversations
-
-  resources :invitations
-
-  resources :notifications do
-    collection do
-      put 'update_all'
-    end
-  end
-
-  resources :comments
-
-  resources :activities do
-    resource :like
-  end
-
-  match 'search' => 'search#index', :as => :search
-
-  match 'cheesecake' => 'cheesecake#index', :as => :cheesecake
-
-  match 'ties' => 'ties#index', :as => :ties
-
-
-  ##API###
-  match 'api/keygen' => 'api#create_key', :as => :api_keygen
-  match 'api/user/:id' => 'api#users', :as => :api_user
-  match 'api/me' => 'api#users', :as => :api_me
-  match 'api/me/home/' => 'api#activity_atom_feed', :format => 'atom', :as => :api_my_home
-  match 'api/user/:id/public' => 'api#activity_atom_feed', :format => 'atom', :as => :api_user_activities
-
-  match 'api/me/contacts' => 'contacts#index', :format => 'json', :as => :api_contacts
-  match 'api/subjects/:s/contacts' => 'contacts#index', :format => 'json', :as => :api_subject_contacts
-  ##/API##
-
-  #====================== Events Routes ========================================
-  resources :rooms
-
-  #====================== Application Routes ===================================
-  resources :sessions, :campaigns, :levels, :photos
-  namespace "admin" do
-    root :to => 'users#login'
-    match 'login' => "users#login"
-    match '/dashboard' => "users#dashboard"
-    resources :users
-  end
-
-  #============== New design ==================
-  match 'new' => 'page#index'
-
-  
-
-  #============== Page =======================
-  match '/pre' => 'page#pre'
-  match '/sa' => 'page#sa'
-  match '/demo' => 'page#demo'
-
-  #============== Registration=================
-  match '/account/login' => 'sessions#new'
-  match '/account/create/user' => 'users#signup'
-  match '/create_user' => "users#create"
-  match '/logout' => 'users#logout'
-
-  #============== Search =======================
-  match '/search' => 'search#index'
-
-  #============== Campaign ========================
-  match '/users/signup/fb' => 'registrations#campaign'
-  match 'create_campaign' => 'registrations#create_campaign'
-  match 'fb_connect' => 'page#fb_connect'
-  match '/signup/campaign' => 'campaigns#new'
-  match '/check_url/:url' => 'campaigns#check_url'
-  match '/check_valid_url/:url' => 'campaigns#check_valid_url'
-  match '/setting' => 'campaigns#setting'
-  match '/upload_media' => 'campaigns#upload_media'
-  match '/email/:campaign_id' => 'campaigns#email'
-  match '/import_contact' => 'campaigns#import_contact'
-
-  #==================== Campaign Profile ==============
-  match "/edit/:url" => 'campaigns#edit'
-  match 'campaign/:url' => 'campaigns#index'
-  match '/cover' => 'page#index'
-
-  root :to => "page#pre"
+  # Install the default routes as the lowest priority.  
+  map.connect '',:controller=>"homes",:action=>"index"  
+  map.connect 'community',:controller=>"community",:action=>"community"
+  map.connect 'myprofile',:controller=>"myprofile",:action=>'myprofile'
+  map.connect 'video',:controller=>"video",:action=>'video'
+  map.connect 'forums',:controller=>"forums",:action=>'forum' 
+  map.connect 'travel_search',:controller=>"travel_search",:action=>'travel_search'
+  map.connect 'invite',:controller=>"invite",:action=>'invite'  
+  map.connect 'sent',:controller=>"sent",:action=>'index'
+  map.connect 'photos',:controller=>"photos",:action=>'frame_photo'
+  map.connect 'bundles/:names.:ext',
+  :controller => 'assets_bundle', 
+  :action => 'fetch', 
+  :ext => '/css|js/', 
+  :names => '/[^.]*'
+  map.connect ':controller/:action/:id'
+  map.connect ':controller/:action/:id.:format' 
 end

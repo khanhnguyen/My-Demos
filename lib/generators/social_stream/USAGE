@@ -1,6 +1,0 @@
-Description:
-    Initial migration and configuration
-
-Example:
-    rails generate social_stream:install
-

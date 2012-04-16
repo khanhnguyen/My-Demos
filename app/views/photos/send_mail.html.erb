@@ -1,0 +1,63 @@
+<div id="theLayer" style="position:absolute;top:180px;width:250px;left:200px;">
+<table class="pop_dialog_table" id="pop_dialog_table">
+<tr>
+<td class="pop_topleft"/><td class="pop_border"/><td class="pop_topright"/>
+</tr>
+<tr>
+<td class="pop_border"/>
+<td id="pop_content" class="pop_content">
+<h2 class="dialog_title" style="width:99.5%;"><span>&nbsp;&nbsp;Send To Friend</span></h2>
+<div class="dialog_content">
+<br/>
+<% form_remote_tag(:update =>"error_mail",:complete=>"$('senttofriend').hide();",:url => {:controller=>'photos',:action => 'send_mail_friend',:url_big=>@url_big}) do %>
+<div class="dialog_body">
+<table>
+<tr>
+<td>
+&nbsp;
+</td>
+<td id="error_mail" style="color:red;display:none;">
+Email not valid
+</td>
+</tr>
+<tr>
+<td>
+<img src="<%=@url_small%>" align="left" style="width:170px;height:140px;"/>
+</td>
+<td>
+<table>
+<tr>
+<td class="font_standand" style="width: 50px;">
+Email:
+</td>
+<td>
+ <input id="id_email" name="email" value="Enter  your mail friend" size="25"/>
+
+</td>
+</tr>
+<tr>
+<td class="font_standand" style="width: 50px;">
+Message: 
+</td>
+<td>
+<textarea name="message" style="width:176px;"></textarea>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<td colspan="2">
+<div id='dialog_buttons' class='dialog_buttons' style='padding-left:140px;'>
+<input type='button' onclick="check_mail();" id='dialog_button1' value='Send' class='inputsubmit'/><input type='submit' id="send_mail_button" style="display:none;"/><input type='button' onClick="hideMe();" id='dialog_button2' value='Cancel' class='inputsubmit inputaux'/>
+</div>
+</td>
+</table>
+</div><%end %>
+</div>
+</td><td class="pop_border"/>
+</tr>
+<tr>
+<td class="pop_bottomleft"/><td class="pop_border"/><td class="pop_bottomright"/>
+</tr>
+</table>
+</div>

@@ -1,2 +1,0 @@
-class PicturesController < DocumentsController
-end  

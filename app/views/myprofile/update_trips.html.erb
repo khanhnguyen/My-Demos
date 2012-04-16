@@ -1,0 +1,29 @@
+<%unless @trips.blank? %>
+<%for trip in @trips %>
+<div>
+    <div style="width:70px;float:left;">
+        Location: 
+    </div>
+    <div>
+        <%=trip.location.name %>
+    </div>
+</div>
+<div>
+    <div style="width:70px;float:left;">
+        When:
+    </div>
+    <div>
+        <%=trip.start_trip.strftime("From %m-%d-%Y") %>
+        <%=trip.end_trip.strftime("to %m-%d-%Y") %>
+    </div>
+</div>
+<div>
+    <div id="link_to_edit" style="width:30px;float:left;">
+        <%= link_to_remote "edit",:before=>"$('form_update').show();$('form_trip').hide();",:update => 'form_update',:url=> { :action => 'edit',:id=>trip.id } %>
+    </div>
+    <div>
+        | <%= link_to_remote "delete",:update => 'information_user',:url    => { :action => 'delete',:id=>trip.id },:confirm => "Are you sure?" %>
+    </div>
+</div>
+<%end %>
+<%end %>

@@ -1,0 +1,47 @@
+<style>
+.font {
+font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+font-size: 11.5px;
+}
+</style>
+<%unless @results.blank? %>
+<%for result in @results %>
+<div style="float:left;">
+<img src="<%=result.url_image %>"/>
+</div>
+<div>
+<div>
+<div class="font" style="width:70px;float:left;">
+Name: 
+</div>
+<div class="font">
+<%=result.user_name %>
+</div>
+</div>
+<div>
+<div class="font" style="width:70px;float:left;">
+Where:
+</div>
+<div class="font">
+<%=result.locat_name %>
+</div>
+</div>
+<div>
+<div class="font" style="width:70px;float:left;">
+When: 
+</div>
+<div class="font">
+<%=result.start_trip.strftime("From %m-%d-%Y") %>
+<%=result.end_trip.strftime("to %m-%d-%Y") %>
+</div>
+</div>
+</div>
+<%end %>
+<%else %>
+<div class="font">
+&nbsp;
+</div>
+<div class="font">
+no result
+</div>
+<%end %>

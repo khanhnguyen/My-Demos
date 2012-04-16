@@ -1,0 +1,12 @@
+<%unless @locations.blank? %>
+<%for location in @locations %>
+<div>
+    <span><h2><%=location.name %></h2>
+    </span>
+    <span class="small4">
+    	<%=location.discription %>
+    </span>
+</div>
+<br/>
+<%end %>
+<%end %>

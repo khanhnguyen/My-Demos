@@ -1,2 +1,0 @@
-class VideosController < DocumentsController
-end

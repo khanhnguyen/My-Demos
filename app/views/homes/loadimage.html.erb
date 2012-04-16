@@ -1,0 +1,10 @@
+<%for image in @images %>
+<img src="<%=image.url_small%>" width="220" height="160"/>
+<br/>
+<font class="font_standand">
+    <%=image.title.split("(www.hoangkhainhan.com)") %>
+</font>
+<br/>
+<%end %>
+
+
