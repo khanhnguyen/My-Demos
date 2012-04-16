@@ -1,0 +1,24 @@
+<style>
+body {
+font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+font-size: 11px;
+text-align: left;
+}
+</style>
+<%= javascript_include_tag :prototype %>
+<table style="width:750px;">
+<tr>
+<td valign="top" style="width:450px;">
+<div id="search_basic">
+<div class="font_standand" style="float:left;font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;font-size: 11px;">
+Location: &nbsp;&nbsp;
+</div>
+<div>
+<%=select_tag(:location_id_basic,options_from_collection_for_select(@locations, :id, :name),:onchange=>"#{remote_function(:url => {:action=>'search_community',:search_basic=>true},:with => "'location_id='+this.value",:update =>'search_result',:complete => 'a')}",:style=>"width:140px;font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;font-size: 11px;") %>
+</div>
+</div>
+<div id="search_result">
+</div>
+</td>
+</tr>
+</table>

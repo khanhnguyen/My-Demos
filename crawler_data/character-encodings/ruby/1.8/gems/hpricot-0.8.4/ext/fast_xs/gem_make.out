@@ -1,0 +1,24 @@
+/home/khanh/.rvm/rubies/ruby-1.8.7-p352/bin/ruby extconf.rb 
+checking for stdio.h... yes
+creating Makefile
+
+make
+Makefile:128: warning: overriding commands for target `/home/khanh/Dropbox/Projects/Thi'
+Makefile:122: warning: ignoring old commands for target `/home/khanh/Dropbox/Projects/Thi'
+Makefile:128: warning: overriding commands for target `Cong'
+Makefile:122: warning: ignoring old commands for target `Cong'
+gcc -I. -I/home/khanh/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/i686-linux -I/home/khanh/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/1.8/i686-linux -I. -DHAVE_STDIO_H  -D_FILE_OFFSET_BITS=64  -fPIC -g -O2  -fPIC   -c fast_xs.c
+gcc -shared -o fast_xs.so fast_xs.o -L. -L/home/khanh/.rvm/rubies/ruby-1.8.7-p352/lib -Wl,-R/home/khanh/.rvm/rubies/ruby-1.8.7-p352/lib -L.  -rdynamic -Wl,-export-dynamic    -Wl,-R -Wl,/home/khanh/.rvm/rubies/ruby-1.8.7-p352/lib -L/home/khanh/.rvm/rubies/ruby-1.8.7-p352/lib -lruby  -lrt -ldl -lcrypt -lm   -lc
+
+make install
+Makefile:128: warning: overriding commands for target `/home/khanh/Dropbox/Projects/Thi'
+Makefile:122: warning: ignoring old commands for target `/home/khanh/Dropbox/Projects/Thi'
+Makefile:128: warning: overriding commands for target `Cong'
+Makefile:122: warning: ignoring old commands for target `Cong'
+mkdir -p /home/khanh/Dropbox/Projects/Thi
+mkdir -p Cong
+mkdir -p Chuc/code/crawler_data/git/crawler_data/character-encodings/ruby/1.8/gems/hpricot-0.8.4/lib
+/usr/bin/install -c -m 0755 fast_xs.so /home/khanh/Dropbox/Projects/Thi Cong Chuc/code/crawler_data/git/crawler_data/character-encodings/ruby/1.8/gems/hpricot-0.8.4/lib
+/usr/bin/install: omitting directory `/home/khanh/Dropbox/Projects/Thi'
+/usr/bin/install: omitting directory `Cong'
+make: *** [Chuc/code/crawler_data/git/crawler_data/character-encodings/ruby/1.8/gems/hpricot-0.8.4/lib/fast_xs.so] Error 1

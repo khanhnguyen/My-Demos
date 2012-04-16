@@ -1,0 +1,73 @@
+
+    <%count =0 %>	    
+	<%for i in @res["ResultSet"]["Result"] %>
+        <%if count ==0%>
+		<table id="1">
+		<%end%>
+		<%if count ==10%>		
+		<table id="2" style="display:none;">
+		<%end%>
+		<%if count ==20%>	
+		<table id="3" style="display:none;">
+		<%end%>
+		<%if count ==30%>
+		
+		<table id="4" style="display:none;">
+		<%end%>
+		<tr>
+            <td colspan="2" align="left">
+                <b><%=i['Title'] %></b>
+            </td>
+        </tr>
+        <tr>
+            <td align="left">
+                <img src="<%=i['Image']['Url']%>">
+            </td>
+            <td class="font_standand" style="padding-left:0px;">               
+                    <b>Summary:</b>
+                    <%=i['Summary'] %>
+                    <br/>
+                    <b>Destinations:</b>
+                    <%=i['Destinations'] %>                
+            </td>
+        </tr>
+        <tr align="left">
+            <td colspan="2">
+                <div style="width:100%;height:1px;border-top:1px solid #46A2D0">
+                </div>
+            </td>
+        </tr>	
+		 <%if count ==9%>
+		 </table>
+		</td>
+		</tr>	
+		<%end%>
+
+		 <%if count ==19%>
+		 </table>			
+		 <%end%>
+		 
+		 <%if count ==29%>
+		 </table>			
+		<%end%>
+		 <%if count ==39%>
+		 </table>		
+		 <%end%>
+    <%count +=1 %>
+    <%end %>
+	 <%if count <39%>
+		 </table>		
+		 <%end%>		
+	<%avg = count/10%>
+	<%for page in 1..avg%>
+	<%if page==1%>
+	<a href="#none" onclick="$('2').hide();$('3').hide();$('4').hide();$('<%=page%>').show();"><%=page%></a>
+	<%elsif page==2%>
+	<a href="#none" onclick="$('1').hide();$('3').hide();$('4').hide();$('<%=page%>').show();"><%=page%></a>
+	<%elsif page==3%>
+	<a href="#none" onclick="$('1').hide();$('2').hide();$('4').hide();$('<%=page%>').show();"><%=page%></a>
+	<%elsif page==4%>
+	<a href="#none" onclick="$('1').hide();$('2').hide();$('3').hide();$('<%=page%>').show();"><%=page%></a>	
+	<%end%>
+	<%end%>
+</table>

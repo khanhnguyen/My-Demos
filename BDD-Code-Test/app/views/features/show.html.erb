@@ -1,0 +1,22 @@
+<h1>Feature Details</h1>
+<p>
+    <b>Feature Title: <%= @feature.title %></b>
+</p>
+<p>
+    <%= link_to "Add scenario", :controller => "scenarios", :action => "new", :id => @feature.id %>
+</p>
+<%@feature.scenarios.each{|s| %>
+<p>
+    <b>Scenario: <%=s.title %></b>
+</p>
+<p>
+    Given-Block: <%=s.given_block %>
+</p>
+<p>
+    When-Block: <%=s.when_block %>
+</p>
+<p>
+    Then-Block: <%=s.then_block %>
+</p>
+<%} %>
+<%= link_to 'Back', features_path %>

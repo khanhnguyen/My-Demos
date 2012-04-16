@@ -1,0 +1,5 @@
+<% form_remote_tag :update => 'content_id', :url => {:controller=>"video", :action => "video"} do %>
+<input type="submit" id="button_id"/><%end %>
+<script>
+    document.getElementById('button_id').click();
+</script>

@@ -1,0 +1,19 @@
+development:
+  adapter: mysql
+  database: aagnng8p_travels
+  username: aagnng8p
+  password: emdcwsntyuok
+
+test:
+  adapter: mysql
+  database: aagnng8p_travels
+  username: aagnng8p
+  password: emdcwsntyuok
+
+production:
+  adapter: mysql
+  database: aagnng8p_travels
+  username: aagnng8p
+  password: emdcwsntyuok
+
+

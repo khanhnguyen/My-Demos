@@ -1,0 +1,48 @@
+<style>
+	.editorkit_button {
+        background-color: #3B5998;
+        border-color: #D8DFEA #0E1F5B #0E1F5B #D8DFEA;
+        border-style: solid;
+        border-width: 1px;
+        color: #FFFFFF;
+        font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+        font-size: 11px;
+        margin: 0 2px;
+        padding: 2px 18px;
+    }
+</style>
+<% form_remote_tag :update => "information_user",:complete=>"$('form_update').hide();$('form_trip').show();" , :url    => { :action => 'update_trips',:id=>@trip.id } do %>
+<div>
+    <div style="width:70px;float:left;">
+        Location: 
+    </div>
+    <div>
+        <%=@locations = Location.find(:all,:select=>"id,name")
+        select_tag(:location_id,options_from_collection_for_select(@locations, :id, :name,@trip.location_id),:style=>"width:140px;font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;font-size: 11px;") %>
+    </div>
+</div>
+<div>
+    <div style="width:70px;float:left;">
+        Start time
+    </div>
+    <div>
+        <%= calendar_date_select_tag "start_trip", "", :month_year => "label",:value=>"#{@trip.start_trip}",:style =>"width:135px;" %>
+    </div>
+</div>
+<div>
+    <div style="width:70px;float:left;">
+        end time
+    </div>
+    <div>
+        <%= calendar_date_select_tag "end_trip", "", :month_year => "label",:value=>"#{@trip.end_trip}",:style =>"width:135px;" %>
+    </div>
+</div>
+<div>
+    <div style="width:70px;float:left;">
+        &nbsp;
+    </div>
+    <div>
+        <input class="editorkit_button" type="submit" value="Update trip"/>
+    </div>
+</div>
+<%end%>

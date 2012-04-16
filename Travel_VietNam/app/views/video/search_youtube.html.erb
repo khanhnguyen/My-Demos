@@ -1,0 +1,27 @@
+<div id="video_update">
+<table id="list_video"> 
+<tr>
+<%for video in @videos.videos %>
+<%unless video.thumbnails[0]==nil && video.title==nil%>
+    <td style="float:left;">
+        <div style="padding:12px;">  
+		<%video_object = "<object width='425' height='355'><param name='movie' value='#{video.embed_url}&amp;rel=1&autoplay=1&amp;color1=0x2b405b&amp; color2=0x6b8ab6&amp;border=1&amp;fs=1'><param name='allowFullScreen' value='true'><embed src='#{video.embed_url}&autoplay=1&amp;rel=1&amp;color1=0x2b405b&amp;color2=0x6b8ab6&amp;border=1&amp;fs=1' type='application/x-shockwave-flash' allowfullscreen='true' width='425' height='355'></object>"%>
+       <a href="#none" style="border:0px;">  <%=image_tag(video.thumbnails[0].url, :style=>"width:100px;height:100px;border:0px;", :onclick => "$('title_id').innerHTML=\"<b>#{video.title}</b>\";$('video_display').innerHTML=\"#{video_object}\";") %></a>  		
+        </div>
+        <div style="font-size:12px;">
+            <%=h(truncate(video.title, 20)) %>
+        </div>
+    </td>
+<%end%>
+<%end %>
+</tr>
+</table>
+
+
+<div style="margin-left:400px;">
+	<%for i in 1.. @videos.total_pages%>
+		<%=image_tag "ajax-loader.gif",:id=>"img_#{i}",:style=>"display:none;"%>
+		<%=link_to_remote "#{i}",:html=>{:id=>"link_#{i}"}, :after=>"$('link_#{i}').hide();$('img_#{i}').show();",:complete=>"$('link_#{i}').show();$('img_#{i}').hide();" ,:update=>"list_video",:url => {:action => "page_new", :page => i }%>
+	<%end%>
+</div>
+</div>

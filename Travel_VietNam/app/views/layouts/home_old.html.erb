@@ -1,0 +1,149 @@
+<style>
+style {
+margin-bottom:15px;
+margin-left:0;
+margin-right:0;
+margin-top:10px;
+}
+ .clearfix {
+display:block;
+}
+.tabs {
+border-bottom:1px solid #898989;
+padding:3px 0;
+}
+.clearfix {
+display:inline-block;
+}
+body {
+direction:ltr;
+font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+font-size:11px;
+text-align:left;
+}
+.tabs .left_tabs {
+float:left;
+padding-left:10px;
+}
+.clearfix {
+display:block;
+}
+.toggle_tabs {
+display:inline;
+list-style-image:none;
+list-style-position:outside;
+list-style-type:none;
+margin:0;
+padding:0;
+text-align:center;
+}
+.clearfix {
+display:inline-block;
+}
+.toggle_tabs li {
+background:#F1F1F1 url(http://9bf602fd.fb.joyent.us:3001/images/toggle_tab_gloss.gif) repeat-x scroll left top;
+display:inline;
+padding:2px 0 3px;
+}
+.toggle_tabs li.first a.selected {
+border-left:1px solid #36538F;
+border-right:1px solid #5973A9;
+margin:0;
+}
+.toggle_tabs li a.selected {
+background:#6D84B4 none repeat scroll 0 0;
+border-color:#3B5998 #5973A9;
+border-style:solid;
+border-width:1px;
+color:#FFFFFF;
+margin-left:-1px;
+}
+.toggle_tabs li.first a {
+border:1px solid #898989;
+}
+.toggle_tabs li a {
+border-color:#898989 #898989 #898989 -moz-use-text-color;
+border-style:solid solid solid none;
+border-width:1px 1px 1px 0;
+color:#333333;
+font-weight:bold;
+padding:2px 8px 3px 9px;
+}
+a {
+color:#3B5998;
+cursor:pointer;
+outline-style:none;
+text-decoration:none;
+}
+</style>
+<div align="left" id="wrapper">
+	<div style="height:133px;">
+    <img src="http://9bf602fd.fb.joyent.us:3001/images/banner.gif"/>
+	</div>
+	<div>
+        <div class="tabs clearfix">
+            <center>
+                <div class="left_tabs">
+                    <ul id="toggle_tabs_unused" class="toggle_tabs clearfix">
+                        <li class="first">
+                        	<%if params[:controller].eql?("homes")%>
+                        	<%= link_to "Homes" ,{:controller=>"homes",:action => "frame_home"},:class=>"selected" %>                            
+                        	<%else%>
+							<%= link_to "Homes" ,{:controller=>"homes",:action => "frame_home"}%>
+							<%end%>
+						</li>
+						<li class="first">
+							<%if params[:controller].eql?("myprofile")%>
+							<%= link_to "Profile",{:controller=>"myprofile", :action => "frame_myprofile"},:class=>"selected"%>
+							<%else%>
+							<%= link_to "Profile",:controller=>"myprofile", :action => "frame_myprofile"%>
+							<%end%>                            
+                        </li>
+                        <li class="first">
+                        	<%if params[:controller].eql?("sent")%>
+                            <%= link_to "Gift/Pokes",{:controller=>"sent", :action => "index"},:class=>"selected" %>
+							<%else%>
+							<%= link_to "Gift/Pokes",:controller=>"sent", :action => "index" %>
+							<%end%>
+                        </li>
+                        <li class="first">
+                        	<%if params[:controller].eql?("community")%>
+                           <%= link_to "Community",{:controller=>"community",:action => "frame_community"} ,:class=>"selected"%>
+						   <%else%>
+						   <%= link_to "Community",:controller=>"community",:action => "frame_community" %>
+						   <%end%>
+                        </li>
+                        <li class="first">
+                        	<%if params[:controller].eql?("friend")%>
+                            <%= link_to "Friends",{:controller=>"myfriends", :action => "frame_friend"},:class=>"selected" %>
+							<%else%>
+							<%= link_to "Friends",{:controller=>"myfriends", :action => "frame_friend"}%>
+							<%end%>
+                        </li>
+                        <li class="first">
+                            <a>Most Popular</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="right_tabs">
+                    <ul id="toggle_tabs_unused" class="toggle_tabs clearfix">
+                        <li class="first">
+                        	<%if params[:controller].eql?("forums")%>
+                            <%= link_to "Forums",{:controller=> "forums",:action => "index"},:class=>"selected" %> 
+							<%else%>
+							<%= link_to "Forums",:controller=> "forums",:action => "index" %>
+							<%end%>
+                        </li>
+                        <li class="first">                        	
+                           <a href="http://apps.facebook.com/travelvietnam/invite/" title="Forums"><span>Invite</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </center>
+        </div>
+		<div id="column_wrapper">
+        <%= yield %>
+    	</div>
+    </div>   
+</div>
+

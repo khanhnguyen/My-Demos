@@ -1,0 +1,422 @@
+BODY
+{
+	font-family: Verdana, Arial, Tahoma;
+	font-size: small;
+	font-weight: normal;
+	color: black;
+	topMargin: 0px;
+	bottomMargin: 0px;
+	leftMargin: 0px;
+	rightMargin: 0px;
+	 background-color: #fff;
+	font: 100% Arial, Helvetica, sans-serif;
+
+	
+	margin: 0px;
+	padding: 0px;
+}
+TABLE, TH, TR, TD, P
+{
+	font-family: Verdana, Arial, Tahoma;
+	font-size: 12px;
+	font-weight: normal;
+	color: black;
+	topMargin: 0px;
+	bottomMargin: 0px;
+	leftMargin: 0px;
+	rightMargin: 0px;
+}
+INPUT, SELECT, TEXTAREA
+{
+	font-family: Verdana, Arial, Tahoma;
+	font-size: 11px;
+	font-weight: normal;
+	
+	color: black;
+	topMargin: 0px;
+	bottomMargin: 0px;
+	leftMargin: 0px;
+	rightMargin: 0px;
+}
+  a         { color: #3B5998; text-decoration: none; }
+  a:hover   { color: #3B5998; text-decoration:underline ; }
+  .headline { font-family: arial black, arial; font-size: 20px; letter-spacing: -1px; }
+  .headline2{ font-family: verdana, arial; font-size: 12px; }
+  .subhead  { font-family: arial, arial; font-size: 18px; font-weight:none; font-style: italic; }
+  .backtotop     { font-family: arial, arial; font-size: xx-small;  }
+  .code     { background-color: #EEEEEE; font-family: Courier New; font-size: x-small;
+              margin: 5px 0px 5px 0px; padding: 5px;
+              border: black 1px dotted;
+            }
+
+a:visited {
+	text-decoration:;
+	color: #3B5998;
+}
+
+
+
+div.auto_complete {
+      position:absolute;
+      width:250px;
+      background-color:white;
+      border:1px solid #888;
+      margin:0px;
+      padding:0px;
+}
+
+div.auto_complete ul {
+      list-style-type: none;
+      margin:0px;
+      padding:0px;
+}
+
+div.auto_complete ul li.selected 
+{ 
+        background-color: #bbf;
+
+}
+
+div.auto_complete ul li {
+      list-style-type: none;
+      display:block;
+      margin:0;
+      padding:2px;
+      height:16px;
+}
+ .multiple_select {
+  border: 1px solid #aaa;
+  height: 100px;
+  width: 200px;
+  padding: 2px;
+  margin: 1em;
+  overflow: auto;
+}
+
+.multiple_select, .multiple_select ul {
+  list-style-type: none;
+}
+
+.multiple_select_checkbox {
+  background: #fff;
+}
+
+.alt {
+  background: #eef;
+}
+div.uploadStatus {
+  margin: 5px;
+}
+
+div.progressBar {
+  margin: 5px;
+}
+
+div.progressBar div.border {
+  background-color: #fff;
+  border: 1px solid grey;
+  width: 100%;
+}
+
+div.progressBar div.background {
+  background-color: #333;
+  height: 18px;
+  width: 0%;
+}
+#container {
+	width: 620px;
+	background:#FFFFFF ;
+	margin: 0px auto;
+}
+#nav1 {
+	text-align: left;
+}
+#nav {
+	width: 22%;
+	float: left;
+	background: #D7E0E9;
+}
+#content {
+	margin-left: 26%;
+
+
+}
+#footer {
+	font-size: 80%;
+	clear: both;
+	color: #ffffff;
+
+	margin-top: 0em;
+	border-top: 1px solid #648EBA;
+	padding: 4px;
+	background-image:url("/images/bien.jpg");
+}
+/*IR heading styles*/
+#sitename h1 {
+	font: 80% Georgia, "Times New Roman", Times, serif;
+	margin: 0px;
+	position: relative;
+	height: 100px;
+	width: 100%;
+
+}
+#sitename h1 span {
+	background: url(/images/FramOnFacebook.gif);
+
+	position: absolute;
+	height: 100px;
+	width: 645px;
+}
+/* navigation */
+#navlist {
+padding-left: 0;
+margin-left: 0;
+border-bottom: 0px solid #CCD7FF;
+width: 90%;
+}
+#navlist li {
+list-style: none;
+margin: 0;
+padding: ;
+border-top: 1px solid #CCD7FF;
+}
+#navlist li a {
+  text-decoration: none;
+}
+/* classes */
+.small {
+	font-size: 80%;
+}
+/* picture */
+
+.photo {
+	border: 6px ridge #369;
+}
+
+#left {
+	float: left;
+	width: 200px;
+	height:auto;
+	padding-left: 3px;
+background: url(/images/WB02106.jpg) ;
+
+}
+#right {
+	float: right;
+	width: 40%;
+	padding-right: 2px;
+
+	border: #D3E7EF;
+}
+#right1 {
+	float: right;
+	top:auto;
+	width: 240px;
+	padding-right: 2px;
+
+	border: #D3E7EF;
+}
+.floatleft {
+	float: left;
+	margin-right: 3px;
+	margin-bottom: 3px;
+}
+#img {
+	border-top: 1px solid #666;
+	border-right: 3px solid #666;
+	border-bottom: 3px solid #666;
+	border-left: 1px solid #666;
+}
+div.thumbnail
+{
+    width: 130px;
+    float: left;
+    margin: 0 10px 10px 0;
+    background: url(/images/chapter12a.gif) no-repeat;
+}
+
+div.thumbnail img
+{
+    border: 1px solid #777;
+    margin: 10px 0 0 10px;
+}
+
+div.thumbnail p
+{
+    margin: 0;
+    padding: 0 20px 30px 10px;
+    background: url(/images/chapter12b.gif) no-repeat 0 100%;
+}
+
+.clear
+{
+    clear: left;
+}
+
+div.imagecaption
+{
+     float: left;
+    width: auto;
+	height: auto;
+    margin: 0 0em 0em 0em;
+    padding: 7px 10px 10px 7px;
+    display: inline;
+    text-align: center;
+    border-color: #CCC #999 #999 #CCC;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    background: url(chapter11c.gif) repeat-x 0 100%;
+}
+.photo-link {
+	border: 1px solid #FFFFFF;
+}
+div.imagecaption img
+{
+    border-color: #ccc #ccc #ccc #ccc;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+}
+.background {
+	
+	width: 300px;
+	height:16px;
+	
+background: url(/images/khung.gif) ;
+
+}
+.background1 {
+	
+	width: 646px;
+	height:18px;
+	
+background: url(/images/khung3.jpg) ;
+
+}
+.calendar_date_select {
+  color:white;
+  border:#777 1px solid;
+  display:block;
+  width:195px;
+  z-index: 1000;
+}
+/* this is a fun ie6 hack to get drop downs to stay behind the popup window.  This should always be just underneath .calendar_date_select */
+iframe.ie6_blocker {
+  position: absolute;
+  z-index: 999;
+}
+
+.calendar_date_select thead th {
+  font-weight:bold;
+  background-color: #aaa;
+  border-top:1px solid #777;
+  border-bottom:1px solid #777;
+  color: white !important;
+}
+
+.calendar_date_select .cds_buttons {
+  text-align:center;
+  padding:5px 0px;
+  background-color: #555;
+}
+
+.calendar_date_select .cds_footer {
+  background-color: black;
+  padding:3px;
+  font-size:12px;
+  text-align:center;
+}
+
+.calendar_date_select table {
+  margin: 0px;
+  padding: 0px;
+}
+
+
+.calendar_date_select .cds_header {
+  background-color: #ccc;
+  border-bottom: 2px solid #aaa;
+  text-align:center;
+}
+
+.calendar_date_select .cds_header span {
+  font-size:15px;
+  color: black;
+  font-weight: bold;
+}
+
+.calendar_date_select select { font-size:11px;}
+
+.calendar_date_select .cds_header a:hover {
+  color: white;
+}
+.calendar_date_select .cds_header a {
+  width:22px;
+  height:20px;
+  text-decoration: none;
+  font-size:14px;
+  color:black !important;
+}
+
+.calendar_date_select .cds_header a.prev {
+  float:left;
+}
+.calendar_date_select .cds_header a.next {
+  float:right;
+}
+
+.calendar_date_select .cds_header a.close {
+  float:right;
+  display:none;
+}
+
+.calendar_date_select .cds_header select.month {
+  width:90px;
+}
+
+.calendar_date_select .cds_header select.year {
+  width:61px;
+}
+.calendar_date_select .cds_buttons a {
+  color: white;
+  font-size: 9px;
+}
+
+.calendar_date_select td {
+  font-size:12px;
+  width: 24px;
+  height: 21px;
+  text-align:center;
+  vertical-align: middle;
+  background-color: #fff;
+}
+.calendar_date_select td.weekend {
+  background-color: #eee;
+  border-left:1px solid #ddd;
+  border-right:1px solid #ddd;
+}
+
+.calendar_date_select td div {
+  color: #000;
+}
+.calendar_date_select td div.other {
+  color: #ccc;
+}
+.calendar_date_select td.selected div {
+  color:white;
+}
+
+.calendar_date_select tbody td {
+  border-bottom: 1px solid #ddd;
+}
+.calendar_date_select td.selected {
+  background-color:#777;
+}
+
+.calendar_date_select td.hover {
+  background-color:#ccc;
+}
+
+.calendar_date_select td.today {
+  border: 1px dashed #999;
+}
+
