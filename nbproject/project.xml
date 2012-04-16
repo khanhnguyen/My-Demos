@@ -3,7 +3,7 @@
     <type>org.netbeans.modules.ruby.railsprojects</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/rails-project/1">
-            <name>crawler_data</name>
+            <name>contact_example</name>
         </data>
     </configuration>
 </project>

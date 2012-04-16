@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-CrawlerData::Application.config.secret_token = 'e741d2707bec597704d927911d5af0e0f7145f3909e71835cc54bfa9b8c2c30b07d332e580bfde07368f43d493422d93350fbb34228d7a6081847654474e3efc'
+ContactExample::Application.config.secret_token = '418179f9c0b9f73151374d37721275a197f1a3936694b08471aa793b7d775eacd073d8821a6dfb0bc5824c53454df11ecce4520040e5e897b680a92ceef5713e'
