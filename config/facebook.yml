@@ -1,6 +1,0 @@
-
-development:
-    key: 109e39b36cd0d3809ca42237f4543344
-    secret: a5cd212f147df3c1d08445e7e2e2c49d
-    canvas_path: http://apps.facebook.com/travelvietnam/
-    callback_path: http://wildermana.facebook.joyent.us/

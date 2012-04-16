@@ -1,4 +1,3 @@
 class User < ActiveRecord::Base
-  has_many :locations
-  has_many :pictures
+  set_primary_key :userid
 end

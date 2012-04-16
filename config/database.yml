@@ -1,19 +1,9 @@
 development:
-  adapter: mysql
-  database: aagnng8p_travels
-  username: aagnng8p
-  password: emdcwsntyuok
-
-test:
-  adapter: mysql
-  database: aagnng8p_travels
-  username: aagnng8p
-  password: emdcwsntyuok
-
-production:
-  adapter: mysql
-  database: aagnng8p_travels
-  username: aagnng8p
-  password: emdcwsntyuok
-
-
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: thicongc_forum
+  pool: 5
+  username: root
+  password: 
+  encoding: latin1
