@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-ContactExample::Application.load_tasks
+Follower::Application.load_tasks

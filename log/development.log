@@ -1,0 +1,240 @@
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (156.9ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (145.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20120507144010)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "birthday" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120507144010')
+  [1m[36m (140.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20120507144010)
+Migrating to ActsAsFollowerMigration (20120507144117)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20120507144010)
+Migrating to ActsAsFollowerMigration (20120507144117)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "follows" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "followable_id" integer NOT NULL, "followable_type" varchar(255) NOT NULL, "follower_id" integer NOT NULL, "follower_type" varchar(255) NOT NULL, "blocked" boolean DEFAULT 'f' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("follows")[0m
+  [1m[35m (0.2ms)[0m  CREATE INDEX "fk_follows" ON "follows" ("follower_id", "follower_type")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("follows")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('fk_follows')
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "fk_followables" ON "follows" ("followable_id", "followable_type")[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120507144117')
+  [1m[36m (150.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("follows")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('fk_followables')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('fk_follows')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+
+
+Started GET "/users" for 127.0.0.1 at 2012-05-07 21:44:38 +0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  Rendered users/index.html.erb within layouts/application (4.5ms)
+Compiled scaffolds.css  (52ms)  (pid 9179)
+Compiled users.css  (2ms)  (pid 9179)
+Compiled application.css  (98ms)  (pid 9179)
+Compiled jquery.js  (3ms)  (pid 9179)
+Compiled jquery_ujs.js  (0ms)  (pid 9179)
+Compiled users.js  (244ms)  (pid 9179)
+Compiled application.js  (326ms)  (pid 9179)
+Completed 200 OK in 615ms (Views: 529.2ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2012-05-07 21:44:40 +0700
+Served asset /users.js - 200 OK (3ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2012-05-07 21:44:40 +0700
+Served asset /users.css - 200 OK (3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-07 21:44:40 +0700
+Served asset /application.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-07 21:44:40 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-07 21:44:40 +0700
+Served asset /scaffolds.css - 200 OK (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-07 21:44:40 +0700
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-07 21:44:40 +0700
+Served asset /application.js - 200 OK (10ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2012-05-07 21:44:41 +0700
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (87.5ms)
+  Rendered users/new.html.erb within layouts/application (108.9ms)
+Completed 200 OK in 122ms (Views: 115.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-07 21:44:41 +0700
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-07 21:44:41 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-07 21:44:41 +0700
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2012-05-07 21:44:53 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2HoPJDa+3LK6Cy+4iNmhzV+X74Dk3qjT2PRt3ilGY0Q=", "user"=>{"name"=>"Khanh", "description"=>"Nguyen", "birthday(1i)"=>"2007", "birthday(2i)"=>"5", "birthday(3i)"=>"7"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (39.9ms)[0m  [1mINSERT INTO "users" ("birthday", "created_at", "description", "name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["birthday", Mon, 07 May 2007], ["created_at", Mon, 07 May 2012 14:44:53 UTC +00:00], ["description", "Nguyen"], ["name", "Khanh"], ["updated_at", Mon, 07 May 2012 14:44:53 UTC +00:00]]
+  [1m[35m (151.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 197ms (ActiveRecord: 191.0ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2012-05-07 21:44:53 +0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered users/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 13ms (Views: 10.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-07 21:44:53 +0700
+Served asset /application.css - 304 Not Modified (13ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-07 21:44:53 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-07 21:44:53 +0700
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2012-05-07 21:44:54 +0700
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" 
+  Rendered users/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-07 21:44:54 +0700
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-07 21:44:54 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-07 21:44:54 +0700
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2012-05-07 21:44:55 +0700
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (7.1ms)
+  Rendered users/new.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 14ms (Views: 13.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-07 21:44:56 +0700
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-07 21:44:56 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-07 21:44:56 +0700
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2012-05-07 21:45:13 +0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2HoPJDa+3LK6Cy+4iNmhzV+X74Dk3qjT2PRt3ilGY0Q=", "user"=>{"name"=>"Hoang", "description"=>"Nguyen", "birthday(1i)"=>"2007", "birthday(2i)"=>"5", "birthday(3i)"=>"7"}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "users" ("birthday", "created_at", "description", "name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["birthday", Mon, 07 May 2007], ["created_at", Mon, 07 May 2012 14:45:13 UTC +00:00], ["description", "Nguyen"], ["name", "Hoang"], ["updated_at", Mon, 07 May 2012 14:45:13 UTC +00:00]]
+  [1m[36m (247.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 252ms (ActiveRecord: 248.3ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2012-05-07 21:45:13 +0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "2"]]
+  Rendered users/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-07 21:45:13 +0700
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-07 21:45:13 +0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2012-05-07 21:45:13 +0700
+Served asset /users.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-07 21:45:13 +0700
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-07 21:45:13 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2012-05-07 21:45:13 +0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2012-05-07 21:45:14 +0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  Rendered users/index.html.erb within layouts/application (39.1ms)
+Completed 200 OK in 46ms (Views: 45.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-07 21:45:14 +0700
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-05-07 21:45:14 +0700
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2012-05-07 21:45:14 +0700
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-07 21:45:14 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-07 21:45:14 +0700
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2012-05-07 21:45:14 +0700
+Served asset /users.css - 304 Not Modified (0ms)
